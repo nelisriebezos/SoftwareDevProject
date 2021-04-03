@@ -1,21 +1,20 @@
 package controllers;
 
-import domeinKlassen.*;
-
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.ObjectInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.codec.binary.Hex;
+
+import domeinKlassen.Docent;
+import domeinKlassen.Klas;
+import domeinKlassen.SLB;
+import domeinKlassen.Student;
+import domeinKlassen.Vak;
+
 public class ObjectenAanmaken {
-
-	private static final String filePath = "objecten.txt";
-
 	public static void main(String[] args) throws FileNotFoundException {
-		ObjectenAanmaken objectIO = new ObjectenAanmaken();
+		ControllerMethoden objectIO = new ControllerMethoden();
 		List<Student> studentenLijst14 = new ArrayList<>();
 		List<Student> studentenLijst15 = new ArrayList<>();
 		List<Object> objectenLijst = new ArrayList<Object>();
@@ -85,7 +84,7 @@ public class ObjectenAanmaken {
 		d2.addVak(OOAD);
 		slb1.addStudent(s1);
 		slb1.addStudent(s2);
-		
+
 		objectenLijst.add(OOP);
 		objectenLijst.add(OOAD);
 		objectenLijst.add(SG14);
@@ -99,40 +98,20 @@ public class ObjectenAanmaken {
 		objectenLijst.add(d1);
 		objectenLijst.add(d2);
 		objectenLijst.add(slb1);
-		
+
 		objectIO.writeObjectToFile(objectenLijst);
-		ArrayList<Object> gelezenObjecten = (ArrayList<Object>) objectIO.readObjectFromFIle(filePath);
-		System.out.println(gelezenObjecten);
-	}
-
-	public static String getFilePath() {
-		return filePath;
-	}
-
-	public void writeObjectToFile(Object serObj) {
-		try {
-			FileOutputStream fileOut = new FileOutputStream(filePath);
-			ObjectOutputStream objectout = new ObjectOutputStream(fileOut);
-			
-			objectout.writeObject(serObj);
-			objectout.flush();
-			objectout.close();
-		} catch (Exception exception) {
-			exception.printStackTrace();
-		}
-	}
-
-	public Object readObjectFromFIle(String filePath) {
-		try {
-		FileInputStream fileIn = new FileInputStream(filePath);
-		ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 		
-		ArrayList<Object> objlst = (ArrayList<Object>) objectIn.readObject();
-		objectIn.close();
-		return objlst;
-	} catch (Exception exception) {
-		exception.printStackTrace();
-		return null;
+		String password = "password";
+		String salt = "12786357162354716121263542872064";
+		int iterations = 100000;
+		int keyLength = 512;
+		char[] passwordChars = password.toCharArray();
+		byte[] saltBytes = salt.getBytes();
+
+		byte[] hashedBytes = ControllerMethoden.hashPassword(passwordChars, saltBytes, iterations, keyLength);
+		String hashedString = Hex.encodeHexString(hashedBytes);
+
+		System.out.println(hashedString);
 	}
-}
+
 }
