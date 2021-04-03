@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DocentenLeerlingOverzichtController">
+    <children>
+        <TableView layoutX="37.0" layoutY="142.0" prefHeight="186.0" prefWidth="525.0">
+            <columns>
+                <TableColumn prefWidth="218.99999618530273" text="vak" />
+                <TableColumn prefWidth="305.6000152587891" text="totaal absent" />
+            </columns>
+        </TableView>
+        <Label fx:id="Leerlingnaam" layoutX="37.0" layoutY="31.0" text="Naam leerling">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Button layoutX="511.0" layoutY="36.0" mnemonicParsing="false" onAction="#Home" text="Home" />
+    </children>
+</AnchorPane>
