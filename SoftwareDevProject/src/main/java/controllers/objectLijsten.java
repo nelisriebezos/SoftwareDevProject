@@ -13,7 +13,7 @@ public class objectLijsten {
 	static ArrayList<Vak> vakkenLijst = new ArrayList<>();
 	static ArrayList<Klas> klassenLijst = new ArrayList<>();
 	
-	public static void LijstSetter(ArrayList objl) {
+	public static void LijstSetter(ArrayList<Object> objl) {
 		for (Object o : objl) {
 			if (o instanceof Student) {
 				studentenLijst.add((Student) o);

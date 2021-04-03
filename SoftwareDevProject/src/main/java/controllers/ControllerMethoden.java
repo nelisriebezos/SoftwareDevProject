@@ -55,8 +55,4 @@ public class ControllerMethoden {
 			return null;
 		}
 	}
-	
-	public ArrayList<Object> objectenScheiden(ArrayList objl) {
-		return objl;
-	}
 }
