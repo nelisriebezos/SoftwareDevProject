@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AbsentieBekijkenLeerlingController">
+   <children>
+      <Label fx:id="naamLeerlingLabel" layoutX="31.0" layoutY="24.0" text="Naam leerling">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="520.0" layoutY="29.0" mnemonicParsing="false" onAction="#Home" text="Home" />
+      <VBox layoutX="31.0" layoutY="372.0" prefHeight="100.0" prefWidth="558.0">
+         <children>
+            <HBox prefHeight="40.0" prefWidth="558.0">
+               <children>
+                  <Button fx:id="ZiekmeldenKnop" mnemonicParsing="false" onAction="#MeldZiek" prefHeight="26.0" prefWidth="104.0" text="Ziekmelden">
+                     <HBox.margin>
+                        <Insets right="320.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#GeplandeAfwezigheid2" text="Geplande Afwezigheid" />
+               </children>
+            </HBox>
+            <Label fx:id="datumZiekLabel" />
+         </children>
+      </VBox>
+      <Label layoutX="31.0" layoutY="84.0" text="Vak:" />
+      <ComboBox fx:id="vakkenCombobox" layoutX="30.0" layoutY="112.0" onAction="#VakkengekozenOnAction" prefWidth="150.0" />
+      <ListView fx:id="vakkenListView" layoutX="31.0" layoutY="191.0" prefHeight="159.0" prefWidth="274.0" />
+      <Label layoutX="32.0" layoutY="175.0" text="Vak" />
+      <Label layoutX="304.0" layoutY="175.0" text="Totaal absent" />
+      <ListView fx:id="absentieListView" layoutX="305.0" layoutY="191.0" prefHeight="159.0" prefWidth="288.0" />
+   </children>
+</AnchorPane>
