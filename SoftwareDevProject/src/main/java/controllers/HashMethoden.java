@@ -4,7 +4,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
-public class PasswordTest {
+public class HashMethoden {
     public static void main(String[] args) {
         String password = "password";
         String salt = "12786357162354716121263542872064";
