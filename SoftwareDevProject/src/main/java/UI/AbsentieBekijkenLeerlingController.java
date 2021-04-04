@@ -28,9 +28,9 @@ public class AbsentieBekijkenLeerlingController {
     public ListView absentieListView;
 
     public void initialize(){
-        naamLeerlingLabel.setText(lijst.getVoorNaam() + " " + lijst.getAchterNaam());
-        List<Vak> vakken = lijst.getVak();
-        vakkenCombobox.setItems(FXCollections.observableList(vakken));
+//        naamLeerlingLabel.setText(lijst.getVoorNaam() + " " + lijst.getAchterNaam());
+//        List<Vak> vakken = lijst.getVak();
+//        vakkenCombobox.setItems(FXCollections.observableList(vakken));
     }
 
     public void Home(ActionEvent actionEvent) throws IOException {
@@ -60,7 +60,7 @@ public class AbsentieBekijkenLeerlingController {
     }
 
 
-    public void GeplandeAfwezigheid2(ActionEvent actionEvent) {
+    public void GeplandeAfwezigheid(ActionEvent actionEvent) {
         Button source = (Button)actionEvent.getSource();
         Stage stage2 = (Stage)source.getScene().getWindow();
         stage2.close();

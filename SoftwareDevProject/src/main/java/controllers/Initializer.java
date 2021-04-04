@@ -16,8 +16,6 @@ public class Initializer extends Application{
     	ArrayList<Object> objectenLijst = (ArrayList<Object>) objectIO.readObjectFromFIle(ControllerMethoden.getFilePath());
 		objectLijsten.LijstSetter(objectenLijst);
         launch(args);
-        
-        System.out.println(objectLijsten.docentenLijst);
     }
 
     public void start(Stage stage) throws Exception {

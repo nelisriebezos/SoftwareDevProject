@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class HomeController {
     public Button GeplandeAfwezigheidKnop;
-    private boolean isDocent = true;
+    private boolean isDocent = false;
 
 
 
@@ -27,8 +27,7 @@ public class HomeController {
 
     public void AbsentieBekijken(ActionEvent actionEvent) {
         if (isDocent){
-            FXMLLoader loader =
-                    new FXMLLoader(getClass().getResource("AbsentieBekijkenDocenten.fxml"));
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("AbsentieBekijkenDocenten.fxml"));
             Parent root = null;
             try {
                 root = loader.load();
@@ -42,8 +41,7 @@ public class HomeController {
             newStage.showAndWait();
         }
         else{
-            FXMLLoader loader =
-                    new FXMLLoader(getClass().getResource("AbsentieBekijkenLeerling.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AbsentieBekijkenLeerling.fxml"));
             Parent root = null;
             try {
                 root = loader.load();
@@ -60,8 +58,7 @@ public class HomeController {
 
 
     public void GeplandeAfwezigheid(ActionEvent actionEvent) {
-        FXMLLoader loader =
-                new FXMLLoader(getClass().getResource("AbsentieDoorvoeren.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AbsentieDoorvoeren.fxml"));
         Parent root = null;
         try {
             root = loader.load();

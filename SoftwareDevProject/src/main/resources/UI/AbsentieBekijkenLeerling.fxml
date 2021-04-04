@@ -22,7 +22,7 @@
                         <Insets right="320.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#GeplandeAfwezigheid2" text="Geplande Afwezigheid" />
+                  <Button mnemonicParsing="false" onAction="#GeplandeAfwezigheid" text="Geplande Afwezigheid" />
                </children>
             </HBox>
             <Label fx:id="datumZiekLabel" />

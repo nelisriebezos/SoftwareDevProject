@@ -16,7 +16,7 @@
             <children>
                 <HBox prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Label text="Gebruikersnaam: ">
+                        <Label text="Leerlingnummer: ">
                             <padding>
                                 <Insets top="50.0" />
                             </padding>

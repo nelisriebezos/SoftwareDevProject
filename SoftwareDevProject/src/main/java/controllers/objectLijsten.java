@@ -8,6 +8,7 @@ import domeinKlassen.Student;
 import domeinKlassen.Vak;
 
 public class objectLijsten {
+	static Object ingelogdPersoon;
 	static ArrayList<Student> studentenLijst = new ArrayList<>();
 	static ArrayList<Docent> docentenLijst = new ArrayList<>();
 	static ArrayList<Vak> vakkenLijst = new ArrayList<>();
@@ -28,5 +29,25 @@ public class objectLijsten {
 				klassenLijst.add((Klas) o);
 			}
 		}
+	}
+	
+	public static ArrayList<Student> getStudentenLijst() {
+		return studentenLijst;
+	}
+
+	public static ArrayList<Docent> getDocentenLijst() {
+		return docentenLijst;
+	}
+
+	public static ArrayList<Vak> getVakkenLijst() {
+		return vakkenLijst;
+	}
+
+	public static ArrayList<Klas> getKlassenLijst() {
+		return klassenLijst;
+	}
+
+	public static Object getIngelogdPersoon() {
+		return ingelogdPersoon;
 	}
 }
