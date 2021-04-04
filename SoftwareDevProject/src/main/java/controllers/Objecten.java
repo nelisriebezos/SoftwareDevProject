@@ -7,7 +7,7 @@ import domeinKlassen.Klas;
 import domeinKlassen.Student;
 import domeinKlassen.Vak;
 
-public class objectLijsten {
+public class Objecten {
 	static Object ingelogdPersoon;
 	static ArrayList<Student> studentenLijst = new ArrayList<>();
 	static ArrayList<Docent> docentenLijst = new ArrayList<>();
@@ -50,4 +50,10 @@ public class objectLijsten {
 	public static Object getIngelogdPersoon() {
 		return ingelogdPersoon;
 	}
+
+	public static void setIngelogdPersoon(Object ingelogdPersoon) {
+		Objecten.ingelogdPersoon = ingelogdPersoon;
+	}
+	
+	
 }

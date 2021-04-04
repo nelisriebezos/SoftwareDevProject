@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import controllers.objectLijsten;
+import controllers.Objecten;
 import domeinKlassen.Docent;
 import domeinKlassen.Student;
 
@@ -25,10 +25,7 @@ public class LoginController {
 	public TextField GebruikersnaamTextField;
 
 	public void LoginKnop(ActionEvent actionEvent) {
-//		for (Student s : objectLijsten.getStudentenLijst()) {
-//			if (WachtwoordPasswordField.getText().equals(s.getWachtwoord())
-//					&& GebruikersnaamTextField.getText().equals(String.valueOf( s.getLeerlingNummer()))) {
-				
+		if (checkDocent() || checkStudent()) {
 				Button source = (Button) actionEvent.getSource();
 				Stage stage2 = (Stage) source.getScene().getWindow();
 				stage2.close();
@@ -44,9 +41,31 @@ public class LoginController {
 				newStage.setScene(new Scene(root));
 				newStage.initModality(Modality.APPLICATION_MODAL);
 				newStage.showAndWait();
-//			} else {
-//				misluktLabel.setText("De combinatie van wachtwoord en gebruikersnaam klopt niet.");
-//			}
+			} else {
+				misluktLabel.setText("De combinatie van wachtwoord en gebruikersnaam klopt niet.");
+			}
 		}
+	
+	
+	public boolean checkDocent() {
+		for (Docent d : Objecten.getDocentenLijst()) {
+			if (WachtwoordPasswordField.getText().equals(d.getWachtwoord()) 
+					&& GebruikersnaamTextField.getText().equals(String.valueOf(d.getDocentNummer()))) {
+				Objecten.setIngelogdPersoon(d);
+				return true;
+			}
+		}
+		return false;
 	}
-//}
+	
+	public boolean checkStudent() {
+		for (Student s : Objecten.getStudentenLijst()) {
+			if (WachtwoordPasswordField.getText().equals(s.getWachtwoord())
+					&& GebruikersnaamTextField.getText().equals(String.valueOf( s.getLeerlingNummer()))) {
+				Objecten.setIngelogdPersoon(s);
+				return true;
+			}
+		}
+		return false;
+	}
+}

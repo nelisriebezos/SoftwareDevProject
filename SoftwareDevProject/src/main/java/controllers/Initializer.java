@@ -14,7 +14,7 @@ public class Initializer extends Application{
     public static void main(String[] args) throws IOException {
     	ControllerMethoden objectIO = new ControllerMethoden();
     	ArrayList<Object> objectenLijst = (ArrayList<Object>) objectIO.readObjectFromFIle(ControllerMethoden.getFilePath());
-		objectLijsten.LijstSetter(objectenLijst);
+		Objecten.LijstSetter(objectenLijst);
         launch(args);
     }
 
