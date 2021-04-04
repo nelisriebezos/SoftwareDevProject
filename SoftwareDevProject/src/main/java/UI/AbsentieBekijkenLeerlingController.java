@@ -82,7 +82,8 @@ public class AbsentieBekijkenLeerlingController {
     public void VakkengekozenOnAction(ActionEvent actionEvent) {
         ObservableList<Object> studentnaam= FXCollections.observableArrayList(vakkenCombobox.getValue());
         vakkenListView.setItems(studentnaam);
-        List<Integer> inttest = FXCollections.observableArrayList(Objecten.getIngelogdStudent().getAbsent());
+        
+        List<Integer> inttest = FXCollections.observableArrayList(Objecten.getIngelogdStudent().getAbsentieAantal());
         absentieListView.setItems((ObservableList) inttest);
     }
 

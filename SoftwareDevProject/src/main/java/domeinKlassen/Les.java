@@ -1,6 +1,7 @@
 package domeinKlassen;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Les {
@@ -9,6 +10,7 @@ public class Les {
     private LocalDateTime eindTijd;
     private Vak vak;
     private Rooster rooster;
+    ArrayList<LesAbsentie> lesabsentieLijst = new ArrayList<>();
 
     public Les(String naam, LocalDateTime beginTijd, LocalDateTime eindTijd, Vak vak, Rooster rooster) {
         this.naam = naam;

@@ -1,6 +1,7 @@
 package domeinKlassen;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -8,27 +9,33 @@ public class Student extends Gebruiker implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private static Student destudent;
-    public static void setStudent(Student student) {
-        destudent = student;
-    }
-    public static Student getStudent() {
-        return destudent;
-    }
     private int leerlingNummer;
     private Klas klas;
     private boolean isWelNietZiek;
-    private int absent = 0;
+    ArrayList<LesAbsentie> lesAbsentieLijst = new ArrayList<>();
+
 
     public Student(String emailAdres, String wachtwoord, String voorNaam, String achterNaam, int leerlingNummer) {
         super(emailAdres, wachtwoord, voorNaam, achterNaam);
         this.leerlingNummer = leerlingNummer;
     }
 
-    public int getAbsent(){return absent;}
-
-    public void verhoogAbsent() {absent += 1;}
-
+    public void setAbsent(Les les, Student stud) {
+    	LesAbsentie l = new LesAbsentie();
+    	l.setLes(les);
+    	l.setStudent(stud);
+    	lesAbsentieLijst.add(l);
+    }
+    
+    public int getAbsentieAantal() {
+    	if (lesAbsentieLijst == null) {
+    		return 0;
+    	}else {
+    		return lesAbsentieLijst.size();
+    	}
+    	
+    }
+    
     public int getLeerlingNummer() {
         return this.leerlingNummer;
     }
