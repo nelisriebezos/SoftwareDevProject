@@ -16,10 +16,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import controllers.Objecten;
 import domeinKlassen.*;
 
 public class AbsentieBekijkenLeerlingController {
-    private Student lijst = Student.getStudent();
     public Label datumZiekLabel;
     public Button ZiekmeldenKnop;
     public ComboBox vakkenCombobox;
@@ -28,9 +28,9 @@ public class AbsentieBekijkenLeerlingController {
     public ListView absentieListView;
 
     public void initialize(){
-//        naamLeerlingLabel.setText(lijst.getVoorNaam() + " " + lijst.getAchterNaam());
-//        List<Vak> vakken = lijst.getVak();
-//        vakkenCombobox.setItems(FXCollections.observableList(vakken));
+        naamLeerlingLabel.setText(Objecten.getIngelogdStudent().getVoorNaam());
+        List<Vak> vakken = Objecten.getIngelogdStudent().getVakken();
+        vakkenCombobox.setItems(FXCollections.observableList(vakken));
     }
 
     public void Home(ActionEvent actionEvent) throws IOException {
@@ -41,20 +41,19 @@ public class AbsentieBekijkenLeerlingController {
     }
 
 
-    public void MeldZiek(ActionEvent actionEvent) {
+    public void MeldZiek(ActionEvent actionEvent) {    	
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String formatedDateTime = now.format(formatter);
-        if(!lijst.getIsWelNietZiek()){
-            System.out.println("test");
+        if(!Objecten.getIngelogdStudent().getIsWelNietZiek()){
             datumZiekLabel.setText("");
             ZiekmeldenKnop.setText("Ziekmelden");
-            lijst.setWelNietZiek(true);
+            Objecten.getIngelogdStudent().setWelNietZiek(true);
         }
         else{
         datumZiekLabel.setText("Je bent ziekgemeld vanaf:\n" + formatedDateTime);
         ZiekmeldenKnop.setText("Beter melden");
-        lijst.setWelNietZiek(false);
+        Objecten.getIngelogdStudent().setWelNietZiek(false);
         }
 
     }
@@ -83,7 +82,7 @@ public class AbsentieBekijkenLeerlingController {
     public void VakkengekozenOnAction(ActionEvent actionEvent) {
         ObservableList<Object> studentnaam= FXCollections.observableArrayList(vakkenCombobox.getValue());
         vakkenListView.setItems(studentnaam);
-        List<Integer> inttest = FXCollections.observableArrayList(lijst.getAbsent());
+        List<Integer> inttest = FXCollections.observableArrayList(Objecten.getIngelogdStudent().getAbsent());
         absentieListView.setItems((ObservableList) inttest);
     }
 

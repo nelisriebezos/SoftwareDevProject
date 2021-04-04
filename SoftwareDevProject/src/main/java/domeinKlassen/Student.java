@@ -49,7 +49,7 @@ public class Student extends Gebruiker implements Serializable {
         this.isWelNietZiek = welNietZiek;
     }
 
-    public List<Vak> getVak() {
+    public List<Vak> getVakken() {
         return Collections.unmodifiableList(getKlas().getVakkenLijst());
     }
 

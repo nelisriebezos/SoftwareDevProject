@@ -25,7 +25,10 @@ public class LoginController {
 	public TextField GebruikersnaamTextField;
 
 	public void LoginKnop(ActionEvent actionEvent) {
-		if (checkDocent() || checkStudent()) {
+//		if (checkDocent() || checkStudent()) {
+		
+				Objecten.setIngelogdPersoon(Objecten.getStudentenLijst().get(0)); 
+		
 				Button source = (Button) actionEvent.getSource();
 				Stage stage2 = (Stage) source.getScene().getWindow();
 				stage2.close();
@@ -41,9 +44,9 @@ public class LoginController {
 				newStage.setScene(new Scene(root));
 				newStage.initModality(Modality.APPLICATION_MODAL);
 				newStage.showAndWait();
-			} else {
-				misluktLabel.setText("De combinatie van wachtwoord en gebruikersnaam klopt niet.");
-			}
+//			} else {
+//				misluktLabel.setText("De combinatie van wachtwoord en gebruikersnaam klopt niet.");
+//			}
 		}
 	
 	
