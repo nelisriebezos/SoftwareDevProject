@@ -29,8 +29,7 @@ public class ObjectenAanmaken {
 		Student s2 = new Student("Jelle.vanBroek@student.hu.nl", "kerstman", "Jelle", "van Broek", 1034839);
 		Student s3 = new Student("Christa.Lange@student.hu.nl", "konijnenvoer", "Christa", "Lange", 1472890);
 		Student s4 = new Student("Dante.Jawel@student.hu.nl", "watiseenwachtwoord", "Dante", "Jawel", 1432907);
-		Student s5 = new Student("Sophie.Dielemans@student.hu.nl", "ditiseenwachtwoord", "Sophie", "Dielemans",
-				1234678);
+		Student s5 = new Student("Sophie.Dielemans@student.hu.nl", "ditiseenwachtwoord", "Sophie", "Dielemans", 1234678);
 		Student s6 = new Student("Ingmar.Boomstam@student.hu.nl", "ingmarisbest", "Ingmar", "Boomstam", 1094789);
 
 		studentenLijst14.add(s1);
@@ -100,18 +99,6 @@ public class ObjectenAanmaken {
 		objectenLijst.add(slb1);
 
 		objectIO.writeObjectToFile(objectenLijst);
-		
-		String password = "password";
-		String salt = "12786357162354716121263542872064";
-		int iterations = 100000;
-		int keyLength = 512;
-		char[] passwordChars = password.toCharArray();
-		byte[] saltBytes = salt.getBytes();
-
-		byte[] hashedBytes = ControllerMethoden.hashPassword(passwordChars, saltBytes, iterations, keyLength);
-		String hashedString = Hex.encodeHexString(hashedBytes);
-
-		System.out.println(hashedString);
 	}
 
 }

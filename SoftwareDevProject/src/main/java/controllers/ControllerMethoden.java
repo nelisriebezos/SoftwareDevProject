@@ -12,18 +12,6 @@ import javax.crypto.spec.PBEKeySpec;
 
 public class ControllerMethoden {
 	private static final String filePath = "objecten.txt";
-	
-	public static byte[] hashPassword(final char[] password, final byte[] salt, final int iterations,
-			final int keylength) {
-		try {
-			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
-			PBEKeySpec spec = new PBEKeySpec(password, salt, iterations, keylength);
-			SecretKey key = keyFactory.generateSecret(spec);
-			return key.getEncoded();
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
 
 	public static String getFilePath() {
 		return filePath;
