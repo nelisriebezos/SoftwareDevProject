@@ -67,7 +67,7 @@ public class AbsentieBekijkenDocentenController {
         Klas klas = (Klas) klassenComboBox.getValue();
         for(Student s1: klas.getStudentenLijst()){
          studentnaam.add(s1.getVoorNaam());
-         inttest.add(s1.getAbsent());
+         inttest.add(s1.getAbsentieAantal());
         }
         kiesLeerlingComboBox.setItems(studentnaam);
         absentListView.setItems((ObservableList) inttest);
