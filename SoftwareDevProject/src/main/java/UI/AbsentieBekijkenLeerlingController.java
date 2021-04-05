@@ -58,27 +58,6 @@ public class AbsentieBekijkenLeerlingController {
 
     }
 
-
-    public void GeplandeAfwezigheid(ActionEvent actionEvent) {
-        Button source = (Button)actionEvent.getSource();
-        Stage stage2 = (Stage)source.getScene().getWindow();
-        stage2.close();
-        FXMLLoader loader =
-                new FXMLLoader(getClass().getResource("Absentiedoorvoeren.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            System.out.println("De file kan niet ingelezen worden.");
-        }
-
-        Stage newStage = new Stage();
-        newStage.setScene(new Scene(root));
-        newStage.initModality(Modality.APPLICATION_MODAL);
-        newStage.showAndWait();
-        initialize();
-    }
-
     public void VakkengekozenOnAction(ActionEvent actionEvent) {
         ObservableList<Object> studentnaam= FXCollections.observableArrayList(vakkenCombobox.getValue());
         vakkenListView.setItems(studentnaam);

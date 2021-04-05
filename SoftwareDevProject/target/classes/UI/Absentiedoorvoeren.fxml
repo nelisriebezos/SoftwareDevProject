@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.01" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AbsentieDoorvoerenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AbsentieDoorvoerenController">
    <children>
       <Label fx:id="ingelogdPersoon" layoutX="35.0" layoutY="14.0" text="Naam">
          <font>
@@ -45,7 +45,7 @@
                   </HBox>
                </children>
             </HBox>
-            <HBox prefHeight="71.0" prefWidth="511.0">
+            <HBox prefHeight="28.0" prefWidth="511.0">
                <children>
                   <HBox prefHeight="71.0" prefWidth="282.0">
                      <children>
@@ -53,7 +53,7 @@
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin></Label>
-                        <DatePicker fx:id="eindDatum" />
+                        <DatePicker fx:id="eindDatum" onAction="#einddatumDatePicker" />
                      </children>
                   </HBox>
                   <HBox prefHeight="71.0" prefWidth="285.0">
@@ -67,6 +67,7 @@
                      </children></HBox>
                </children>
             </HBox>
+            <Label fx:id="misluktLabel" text=" " textFill="RED" />
          </children>
       </VBox>
       <VBox layoutX="35.0" layoutY="212.0" prefHeight="174.0" prefWidth="511.0">

@@ -2,6 +2,11 @@ package UI;
 
 
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
+
+import javax.swing.JFormattedTextField;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -12,12 +17,13 @@ import javafx.stage.Stage;
 
 public class AbsentieDoorvoerenController {
 	public Label ingelogdPersoon;
+	public Label misluktLabel;
 	public DatePicker beginDatum;
 	public DatePicker eindDatum;
 	public TextField beginTijd;
 	public TextField eindTijd;
 	
-    public void initialize() {
+    public void initialize() {	
     }
 
     public void Home(ActionEvent actionEvent) {
@@ -32,5 +38,12 @@ public class AbsentieDoorvoerenController {
     	
     }
     
-    
+    public void einddatumDatePicker(ActionEvent actionEvent) throws Exception{
+    	try{if(beginDatum.getValue().equals(null)) {misluktLabel.setText("Begindatum is leeg.");}}
+    	catch(RuntimeException e) {misluktLabel.setText("Begindatum is leeg."); System.out.println("begindatum is leeg.");}
+    	if(beginDatum.getValue().isAfter(eindDatum.getValue())) {
+    		misluktLabel.setText("Voer een einddatum in die verder is dan de begindatum.");
+    	}
+    	
+    }
 }
