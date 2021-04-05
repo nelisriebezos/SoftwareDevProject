@@ -17,15 +17,15 @@ public class HomeController {
 	public Button GeplandeAfwezigheidKnop;
 
 	public void initialize() {
-		if (Objecten.getIngelogdPersoon() instanceof Docent) {
-			GeplandeAfwezigheidKnop.setVisible(false);
-		}
+//		if (Objecten.getIngelogdPersoon() instanceof Docent) {
+//			GeplandeAfwezigheidKnop.setVisible(false);
+//		}
 	}
 
 	public boolean checkDocentOfStudent() {
-		if (Objecten.getIngelogdPersoon() instanceof Docent) {
-			return true;
-		}
+//		if (Objecten.getIngelogdPersoon() instanceof Docent) {
+//			return true;
+//		}
 		return false;
 	}
 

@@ -26,8 +26,8 @@ public class AbsentieBekijkenDocentenController {
     public ListView leerlingListView;
 
     public void initialize(){
-        List<Klas> klas = this.lijst.getKlassenLijst();
-        klassenComboBox.setItems(FXCollections.observableList(klas));
+//        List<Klas> klas = this.lijst.getKlassenLijst();
+//        klassenComboBox.setItems(FXCollections.observableList(klas));
     }
 
 
