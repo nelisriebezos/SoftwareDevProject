@@ -10,9 +10,9 @@ import javafx.stage.Stage;
 
 
 public class AbsentieDoorvoerenController {
-//	public Label ingelogdPersoon;
-//	public DatePicker beginDatum;
-//	public DatePicker eindDatum;
+	public Label ingelogdPersoon;
+	public DatePicker beginDatum;
+	public DatePicker eindDatum;
 //	public TextField beginTijd;
 //	public TextField eindTijd;
 	
