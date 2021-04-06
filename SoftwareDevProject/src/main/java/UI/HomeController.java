@@ -21,8 +21,7 @@ public class HomeController {
 
 
 	public void AbsentieBekijken(ActionEvent actionEvent) {
-
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("AbsentieBekijkenDocenten.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AbsentieBekijkenLeerling.fxml"));
 			Parent root = null;
 			try {
 				root = loader.load();

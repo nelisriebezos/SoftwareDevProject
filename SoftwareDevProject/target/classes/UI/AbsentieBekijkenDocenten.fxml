@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AbsentieBekijkenDocentenController">
-   <children>
-      <ComboBox fx:id="klassenComboBox" layoutX="31.0" layoutY="30.0" onAction="#kiesLeerlingOnAction" prefWidth="150.0" />
-      <Label layoutX="31.0" layoutY="14.0" text="Klas:" />
-      <Button layoutX="519.0" layoutY="30.0" mnemonicParsing="false" onAction="#Home" text="Home" />
-      <Button layoutX="453.0" layoutY="389.0" mnemonicParsing="false" onAction="#AbsentieWijzigenOnAction" text="Wijzig absentielijst" />
-      <Button layoutX="31.0" layoutY="389.0" mnemonicParsing="false" onAction="#BekijkLeerlingButton" text="Bekijk per leerling" />
-      <ComboBox fx:id="kiesLeerlingComboBox" layoutX="31.0" layoutY="350.0" prefWidth="150.0" />
-      <Label layoutX="29.0" layoutY="326.0" text="Selecteer een leerling" />
-      <ListView fx:id="absentListView" layoutX="300.0" layoutY="103.0" prefHeight="200.0" prefWidth="274.0" />
-      <ListView fx:id="leerlingListView" layoutX="26.0" layoutY="103.0" prefHeight="200.0" prefWidth="273.0" />
-      <Label layoutX="29.0" layoutY="86.0" text="Leerling" />
-      <Label layoutX="300.0" layoutY="86.0" text="Totaal absent" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AbsentieBekijkenDocentenController">
+	<children>
+		<ComboBox fx:id="klassenComboBox" layoutX="31.0" layoutY="30.0" onAction="#kiesLeerlingOnAction" prefWidth="150.0" />
+		<Label layoutX="31.0" layoutY="14.0" text="Klas:" />
+		<Button layoutX="519.0" layoutY="30.0" mnemonicParsing="false" onAction="#Home" text="Home" />
+		<ComboBox fx:id="kiesLeerlingComboBox" layoutX="31.0" layoutY="350.0" prefWidth="150.0" />
+		<Label layoutX="29.0" layoutY="326.0" text="Selecteer een leerling" />
+		<ListView fx:id="absentListView" layoutX="300.0" layoutY="103.0" prefHeight="200.0" prefWidth="274.0" />
+		<ListView fx:id="leerlingListView" layoutX="26.0" layoutY="103.0" prefHeight="200.0" prefWidth="273.0" />
+		<Label layoutX="29.0" layoutY="86.0" text="Leerling" />
+		<Label layoutX="300.0" layoutY="86.0" text="Totaal absent" />
+      <Button layoutX="31.0" layoutY="388.0" mnemonicParsing="false" onAction="#zetAbsent" text="Zet absent" />
+	</children>
 </AnchorPane>

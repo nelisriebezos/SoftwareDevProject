@@ -2,11 +2,6 @@ package UI;
 
 
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
-
-import javax.swing.JFormattedTextField;
-
 import controllers.Objecten;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;

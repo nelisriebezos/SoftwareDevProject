@@ -53,13 +53,12 @@ public class Objecten {
 		return ingelogdPersoon;
 	}
 
-	public static void setIngelogdPersoon(Object igp) {
-		if (igp instanceof Student) {
-		ingelogdStudent = (Student) igp;
+	public static void setIngelogdStudent(Student ingelogdStudent) {
+		Objecten.ingelogdStudent = ingelogdStudent;
 	}
-		if (igp instanceof Docent) {
-			ingelogdDocent = (Docent) igp;
-		}
+
+	public static void setIngelogdDocent(Docent ingelogdDocent) {
+		Objecten.ingelogdDocent = ingelogdDocent;
 	}
 
 	public static Student getIngelogdStudent() {
