@@ -15,6 +15,7 @@ public class Les implements Serializable{
     private LocalDate dag;
     private Vak vak;
     private Klas klas;
+    private Rooster rooster;
     ArrayList<LesAbsentie> lesabsentieLijst = new ArrayList<>();
 
     public Les(String naam, String beginTijd, String eindTijd, LocalDate dag, Vak vak) {
@@ -53,7 +54,15 @@ public class Les implements Serializable{
     	this.klas = klas;
     }
 
-    @Override
+    public Rooster getRooster() {
+		return rooster;
+	}
+
+	public void setRooster(Rooster rooster) {
+		this.rooster = rooster;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Les)) return false;
@@ -69,6 +78,6 @@ public class Les implements Serializable{
 
     @Override
     public String toString() {
-        return this.naam + " van: " + this.beginTijd + " tot: " + this.eindTijd + " over: ";
+        return this.naam + " van: " + this.beginTijd + " tot: " + this.eindTijd;
     }
 }

@@ -12,6 +12,7 @@ public class Klas implements Serializable {
 
     private int klasNummer;
     private SLB slb;
+    private Rooster rooster;
     private List<Student> studentenLijst = new ArrayList<>();
     private List<Docent> docentenLijst = new ArrayList<>();
     private List<Vak> vakkenLijst = new ArrayList<>();
@@ -67,8 +68,16 @@ public class Klas implements Serializable {
     public void removeVak(Vak vak) {
         this.vakkenLijst.remove(vak);
     }
+    
+    public Rooster getRooster() {
+		return rooster;
+	}
 
-    @Override
+	public void setRooster(Rooster rooster) {
+		this.rooster = rooster;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Klas)) return false;

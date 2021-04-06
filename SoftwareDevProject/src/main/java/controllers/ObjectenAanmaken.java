@@ -45,15 +45,15 @@ public class ObjectenAanmaken {
 		SLB slb1 = new SLB("Berend.Botje@docent.hu.nl", "woawoiewo", "Berend", "Botje");
 
 		
-		Les l1a = new Les("OOP Les 1", "13:30", "15:30",LocalDate.now().plusDays(1) ,OOAD);
-		Les l2a = new Les("OOP Les 2", "13:30", "15:30",LocalDate.now().plusDays(3) ,OOAD);
-		Les l3a = new Les("OOAD les 1", "08:00", "10:00", LocalDate.now().plusDays(1), OOP);
-		Les l4a = new Les("OOAD les 2", "08:00", "10:00", LocalDate.now().plusDays(3), OOP);
+		Les l1a = new Les("OOAD Les 1", "13:30", "15:30",LocalDate.now().plusDays(1) ,OOAD);
+		Les l2a = new Les("OOAD Les 2", "13:30", "15:30",LocalDate.now().plusDays(3) ,OOAD);
+		Les l3a = new Les("OOP les 1", "08:00", "10:00", LocalDate.now().plusDays(1), OOP);
+		Les l4a = new Les("OOP les 2", "08:00", "10:00", LocalDate.now().plusDays(3), OOP);
 		
-		Les l1b = new Les("OOP Les 1", "13:30", "15:30",LocalDate.now() ,OOAD);
-		Les l2b = new Les("OOP Les 2", "13:30", "15:30",LocalDate.now().plusDays(1) ,OOAD);
-		Les l3b = new Les("OOAD les 1", "08:00", "10:00", LocalDate.now(), OOP);
-		Les l4b = new Les("OOAD les 2", "08:00", "10:00", LocalDate.now().plusDays(1), OOP);
+		Les l1b = new Les("OOAD Les 1", "17:30", "20:30",LocalDate.now() ,OOAD);
+		Les l2b = new Les("OOAD Les 2", "17:30", "20:30",LocalDate.now().plusDays(1) ,OOAD);
+		Les l3b = new Les("OOP les 1", "10:00", "12:00", LocalDate.now(), OOP);
+		Les l4b = new Les("OOP les 2", "10:00", "12:00", LocalDate.now().plusDays(1), OOP);
 		
 		Rooster kr1 = new Rooster(SG14);
 		Rooster kr2 = new Rooster(SG15);
@@ -96,6 +96,7 @@ public class ObjectenAanmaken {
 		SG14.setSlb(slb1);
 		SG14.addVak(OOP);
 		SG14.addVak(OOAD);
+		SG14.setRooster(kr1);
 
 		SG15.addStudent(s4);
 		SG15.addStudent(s5);
@@ -105,19 +106,24 @@ public class ObjectenAanmaken {
 		SG15.setSlb(slb1);
 		SG15.addVak(OOP);
 		SG15.addVak(OOAD);
+		SG15.setRooster(kr2);
 
 		for (Student s : studentenLijst14) {
 			s.setKlas(SG14);
 		}
 		for (Student s : studentenLijst15) {
-			s.setKlas(SG14);
+			s.setKlas(SG15);
 		}
 
 		d1.addKlas(SG14);
 		d1.addKlas(SG15);
 		d1.addVak(OOP);
+		d1.setRooster(dr1);
+		
 		d2.addKlas(SG15);
 		d2.addVak(OOAD);
+		d2.setRooster(dr2);
+		
 		slb1.addStudent(s1);
 		slb1.addStudent(s2);
 

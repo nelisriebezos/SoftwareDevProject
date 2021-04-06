@@ -11,6 +11,7 @@ public class Docent extends Gebruiker implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int docentNummer;
+    private Rooster rooster;
     private List<Klas> klassenLijst = new ArrayList<>();
     private List<Vak> vakkenLijst = new ArrayList<>();
 
@@ -46,8 +47,16 @@ public class Docent extends Gebruiker implements Serializable {
     public void removeVak(Vak vak) {
         this.vakkenLijst.remove(vak);
     }
+    
+    public Rooster getRooster() {
+		return rooster;
+	}
 
-    @Override
+	public void setRooster(Rooster rooster) {
+		this.rooster = rooster;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Docent)) return false;

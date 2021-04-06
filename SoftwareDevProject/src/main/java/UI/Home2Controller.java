@@ -45,20 +45,15 @@ public class Home2Controller {
 	}
 	
 	public void toonLessen() {
-		List<Vak> vakkenLijst = Objecten.getIngelogdDocent().getVakkenLijst();
-			for(Vak vak: vakkenLijst) {
-				List<Les> lessenLijst = vak.getLessenLijst();
+		ObservableList<Les> lessen = FXCollections.observableArrayList();
+		List<Les> lessenLijst = Objecten.getIngelogdDocent().getRooster().getLessenLijst();
 				for(Les les: lessenLijst) {
-					if(overzichtDatePicker.getValue().equals(les.getBeginTijd())) {
-						ObservableList<Les> lessen = FXCollections.observableArrayList();
+					if(overzichtDatePicker.getValue().equals(les.getDag())) {
 						lessen.add(les);
-						vakkenListView.setItems(FXCollections.observableArrayList(lessen));
 					}
 				}
+				vakkenListView.setItems(FXCollections.observableArrayList(lessen));
 			}
-			
-		
-	}
 	
 	public void toonVorigeDag(ActionEvent actionEvent) {
         LocalDate dagEerder = overzichtDatePicker.getValue().minusDays(1);
