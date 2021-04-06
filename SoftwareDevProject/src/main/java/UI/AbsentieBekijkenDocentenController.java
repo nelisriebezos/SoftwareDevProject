@@ -1,4 +1,4 @@
-package UIcontrollers;
+package UI;
 
 import domeinKlassen.Docent;
 import domeinKlassen.Klas;

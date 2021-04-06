@@ -1,4 +1,4 @@
-package UIcontrollers;
+package UI;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +12,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import controllers.Objecten;
 import domeinKlassen.Docent;
 import domeinKlassen.Student;
