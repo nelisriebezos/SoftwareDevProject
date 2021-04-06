@@ -9,15 +9,6 @@ import java.util.Objects;
 public class Docent extends Gebruiker implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private static Docent dedocent;
-
-    public static void setDocent(Docent docent) {
-        dedocent = docent;
-    }
-
-    public static Docent getDocent() {
-        return dedocent;
-    }
 
     private int docentNummer;
     private List<Klas> klassenLijst = new ArrayList<>();
