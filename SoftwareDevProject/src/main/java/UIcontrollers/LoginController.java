@@ -25,9 +25,9 @@ public class LoginController {
 	public TextField GebruikersnaamTextField;
 
 	public void LoginKnop(ActionEvent actionEvent) {
-//		if (checkDocent() || checkStudent()) {
-		
-				Objecten.setIngelogdPersoon(Objecten.getStudentenLijst().get(0)); 
+		System.out.println(checkDocent());
+		if (checkDocent()) {
+				Objecten.setIngelogdPersoon(Objecten.getDocentenLijst().get(0)); 
 		
 				Button source = (Button) actionEvent.getSource();
 				Stage stage2 = (Stage) source.getScene().getWindow();
@@ -44,9 +44,29 @@ public class LoginController {
 				newStage.setScene(new Scene(root));
 				newStage.initModality(Modality.APPLICATION_MODAL);
 				newStage.showAndWait();
-//			} else {
-//				misluktLabel.setText("De combinatie van wachtwoord en gebruikersnaam klopt niet.");
-//			}
+			} 
+		if(checkStudent()) {
+			Objecten.setIngelogdPersoon(Objecten.getStudentenLijst().get(0)); 
+			
+			Button source = (Button) actionEvent.getSource();
+			Stage stage2 = (Stage) source.getScene().getWindow();
+			stage2.close();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
+			Parent root = null;
+			try {
+				root = loader.load();
+			} catch (IOException e) {
+				System.out.println("Het bestand kan niet ingeladen worden");
+			}
+
+			Stage newStage = new Stage();
+			newStage.setScene(new Scene(root));
+			newStage.initModality(Modality.APPLICATION_MODAL);
+			newStage.showAndWait();
+		}
+		else {
+				misluktLabel.setText("De combinatie van wachtwoord en gebruikersnaam klopt niet.");
+			}
 		}
 	
 	

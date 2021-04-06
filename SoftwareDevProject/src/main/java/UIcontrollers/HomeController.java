@@ -17,26 +17,12 @@ public class HomeController {
 	public Button GeplandeAfwezigheidKnop;
 
 	public void initialize() {
-//		if (Objecten.getIngelogdPersoon() instanceof Docent) {
-//			GeplandeAfwezigheidKnop.setVisible(false);
-//		}
 	}
 
-	public boolean checkDocentOfStudent() {
-//		if (Objecten.getIngelogdPersoon() instanceof Docent) {
-//			return true;
-//		}
-		return false;
-	}
 
 	public void AbsentieBekijken(ActionEvent actionEvent) {
-		String bestand = "";
-		if (checkDocentOfStudent()) {
-			bestand = "AbsentieBekijkenDocenten.fxml";
-		} else {
-			bestand = "AbsentieBekijkenLeerling.fxml";
 
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(bestand));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AbsentieBekijkenDocenten.fxml"));
 			Parent root = null;
 			try {
 				root = loader.load();
@@ -49,7 +35,7 @@ public class HomeController {
 			newStage.initModality(Modality.APPLICATION_MODAL);
 			newStage.showAndWait();
 		}
-	}
+	
 
 	public void GeplandeAfwezigheid(ActionEvent actionEvent) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("AbsentieDoorvoeren.fxml"));
