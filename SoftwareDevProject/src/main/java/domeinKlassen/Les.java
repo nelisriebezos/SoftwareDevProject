@@ -1,63 +1,56 @@
 package domeinKlassen;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Les {
+public class Les implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
     private String naam;
-    private LocalDateTime beginTijd;
-    private LocalDateTime eindTijd;
+    private String beginTijd;
+    private String eindTijd;
+    private LocalDate dag;
     private Vak vak;
-    private Rooster rooster;
+    private Klas klas;
     ArrayList<LesAbsentie> lesabsentieLijst = new ArrayList<>();
 
-    public Les(String naam, LocalDateTime beginTijd, LocalDateTime eindTijd, Vak vak, Rooster rooster) {
+    public Les(String naam, String beginTijd, String eindTijd, LocalDate dag, Vak vak) {
         this.naam = naam;
         this.beginTijd = beginTijd;
         this.eindTijd = eindTijd;
+        this.dag = dag;
         this.vak = vak;
-        this.rooster = rooster;
     }
 
     public String getNaam() {
         return this.naam;
     }
 
-    public LocalDateTime getBeginTijd() {
+    public String getBeginTijd() {
         return this.beginTijd;
     }
 
-    public LocalDateTime getEindTijd() {
+    public String getEindTijd() {
         return this.eindTijd;
     }
 
+    public LocalDate getDag() {
+    	return this.dag;
+    }
+    
     public Vak getVak() {
         return this.vak;
     }
 
-    public Rooster getRooster() {
-        return this.rooster;
+    public Klas getKlas() {
+    	return this.klas;
     }
-
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
-    public void setBeginTijd(LocalDateTime beginTijd) {
-        this.beginTijd = beginTijd;
-    }
-
-    public void setEindTijd(LocalDateTime eindTijd) {
-        this.eindTijd = eindTijd;
-    }
-
-    public void setVak(Vak vak) {
-        this.vak = vak;
-    }
-
-    public void setRooster(Rooster rooster) {
-        this.rooster = rooster;
+    
+    public void setKlas(Klas klas) {
+    	this.klas = klas;
     }
 
     @Override
@@ -66,13 +59,12 @@ public class Les {
         if (!(o instanceof Les)) return false;
         Les les = (Les) o;
         return getBeginTijd() == les.getBeginTijd() && getEindTijd() == les.getEindTijd() && Objects.equals(getNaam(),
-                les.getNaam()) && Objects.equals(getVak(), les.getVak()) && Objects.equals(getRooster(),
-                les.getRooster());
+                les.getNaam()) && Objects.equals(getVak(), les.getVak());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNaam(), getBeginTijd(), getEindTijd(), getVak(), getRooster());
+        return Objects.hash(getNaam(), getBeginTijd(), getEindTijd(), getVak());
     }
 
     @Override

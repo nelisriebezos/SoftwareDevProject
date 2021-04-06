@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import domeinKlassen.Docent;
 import domeinKlassen.Klas;
+import domeinKlassen.Les;
 import domeinKlassen.Student;
 import domeinKlassen.Vak;
 
@@ -15,6 +16,7 @@ public class Objecten {
 	static ArrayList<Docent> docentenLijst = new ArrayList<>();
 	static ArrayList<Vak> vakkenLijst = new ArrayList<>();
 	static ArrayList<Klas> klassenLijst = new ArrayList<>();
+	static ArrayList<Les> lessenLijst = new ArrayList<>();
 
 	public static void LijstSetter(ArrayList<Object> objl) {
 		for (Object o : objl) {
@@ -29,6 +31,9 @@ public class Objecten {
 			}
 			if (o instanceof Klas) {
 				klassenLijst.add((Klas) o);
+			}
+			if (o instanceof Les) {
+				lessenLijst.add((Les) o);
 			}
 		}
 	}

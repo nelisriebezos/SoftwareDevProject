@@ -17,7 +17,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 import controllers.Objecten;
-import domeinKlassen.Docent;
 import domeinKlassen.Les;
 import domeinKlassen.Vak;
 

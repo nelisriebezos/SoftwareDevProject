@@ -1,44 +1,52 @@
 package domeinKlassen;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
 
-public class Rooster {
-    private List<Les> lessenLijst = new ArrayList<>();
+public class Rooster implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
-    public Rooster() {
+	private Docent docent;
+	private Klas klas;
+	ArrayList<Les> lessenLijst = new ArrayList<>();
+	
+	public Rooster(Object eigenaar) {
+		if (eigenaar instanceof Klas) {
+			this.klas = (Klas) eigenaar;
+		}
+		if (eigenaar instanceof Docent) {
+			this.docent = (Docent) eigenaar;
+		}
+	}
+	
+	public void voegLesToe(Les l) {
+		this.lessenLijst.add(l);
+	}
 
-    }
+	public Docent getDocent() {
+		return docent;
+	}
 
-    public List<Les> getLessenLijst() {
-        return Collections.unmodifiableList(lessenLijst);
-    }
+	public void setDocent(Docent docent) {
+		this.docent = docent;
+	}
 
-    public void addLes(Les les) {
-        this.lessenLijst.add(les);
-    }
+	public Klas getKlas() {
+		return klas;
+	}
 
-    public void removeLes(Les les) {
-        this.lessenLijst.remove(les);
-    }
+	public void setKlas(Klas klas) {
+		this.klas = klas;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Rooster)) return false;
-        Rooster rooster = (Rooster) o;
-        return Objects.equals(getLessenLijst(), rooster.getLessenLijst());
-    }
+	public ArrayList<Les> getLessenLijst() {
+		return lessenLijst;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getLessenLijst());
-    }
-
-    @Override
-    public String toString() {
-        return "lessenLijst = " + this.lessenLijst;
-    }
+	public void setLessenLijst(ArrayList<Les> lessenLijst) {
+		this.lessenLijst = lessenLijst;
+	}
+	
+	
 }
