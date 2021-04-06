@@ -1,4 +1,4 @@
-package UI;
+package UIcontrollers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

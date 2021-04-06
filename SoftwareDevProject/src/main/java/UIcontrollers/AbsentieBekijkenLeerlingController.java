@@ -1,4 +1,4 @@
-package UI;
+package UIcontrollers;
 
 import domeinKlassen.Student;
 import javafx.collections.FXCollections;
