@@ -65,6 +65,17 @@ public class ObjectenAanmaken {
 		kr1.voegLesToe(l3a);
 		kr1.voegLesToe(l4a);
 		
+		l1a.setRooster(kr1);
+		l2a.setRooster(kr1);
+		l3a.setRooster(kr1);
+		l4a.setRooster(kr1);
+		
+		l1b.setRooster(kr2);
+		l2b.setRooster(kr2);
+		l3b.setRooster(kr2);
+		l4b.setRooster(kr2);
+		
+		
 		kr2.voegLesToe(l1b);
 		kr2.voegLesToe(l2b);
 		kr2.voegLesToe(l3b);
