@@ -29,6 +29,8 @@ public class AbsentieBekijkenLeerlingController {
     }
 
     public void Home(ActionEvent actionEvent) throws IOException {
+    	Manager.getInstance().schrijfWeg();
+    	
         Button source = (Button)actionEvent.getSource();
         Stage stage2 = (Stage)source.getScene().getWindow();
         stage2.close();

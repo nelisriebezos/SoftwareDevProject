@@ -24,6 +24,8 @@ public class AbsentieDoorvoerenController {
     }
 
     public void Home(ActionEvent actionEvent) {
+    	Manager.getInstance().schrijfWeg();
+    	
         Button source = (Button)actionEvent.getSource();
         Stage stage2 = (Stage)source.getScene().getWindow();
         stage2.close();

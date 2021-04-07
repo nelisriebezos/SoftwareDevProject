@@ -10,12 +10,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import controllers.Manager;
+
 
 public class DocentenLeerlingOverzichtController {
     public void initialize() {
     }
 
     public void Home(ActionEvent actionEvent) throws IOException {
+    	Manager.getInstance().schrijfWeg();
+    	
         Button source = (Button)actionEvent.getSource();
         Stage stage2 = (Stage)source.getScene().getWindow();
         stage2.close();
