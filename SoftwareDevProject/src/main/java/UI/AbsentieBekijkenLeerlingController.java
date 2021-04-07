@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -48,6 +49,12 @@ public class AbsentieBekijkenLeerlingController {
             Manager.getInstance().getIngelogdStudent().setWelNietZiek(true);
         }
         else{
+        	List<Les> lessenlijst = Manager.getInstance().getIngelogdStudent().getKlas().getRooster().getLessenLijst();
+            for(Les l: lessenlijst) {
+            	if(l.getDag().equals(LocalDate.now())) {
+            		 Manager.getInstance().getIngelogdStudent().setAbsent(l,  Manager.getInstance().getIngelogdStudent());
+            	}
+            }
         datumZiekLabel.setText("Je bent ziekgemeld vanaf:\n" + formatedDateTime);
         ZiekmeldenKnop.setText("Beter melden");
         Manager.getInstance().getIngelogdStudent().setWelNietZiek(false);
@@ -59,6 +66,8 @@ public class AbsentieBekijkenLeerlingController {
         ObservableList<Object> studentnaam= FXCollections.observableArrayList(vakkenCombobox.getValue());
         vakkenListView.setItems(studentnaam);
         
+        
+        List<Les> lessenlijst = Manager.getInstance().getIngelogdStudent().getKlas().getRooster().getLessenLijst();
         List<Integer> absentieAantal = FXCollections.observableArrayList(Manager.getInstance().getIngelogdStudent().getTotaalAbsentieAantal());
         absentieListView.setItems((ObservableList) absentieAantal);
     }
