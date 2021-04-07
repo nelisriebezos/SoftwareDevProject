@@ -15,10 +15,8 @@ import domeinKlassen.Vak;
 
 public class ObjectenAanmaken {
 	public static void main(String[] args) throws FileNotFoundException {
-		ControllerMethoden objectIO = new ControllerMethoden();
 		List<Student> studentenLijst14 = new ArrayList<>();
 		List<Student> studentenLijst15 = new ArrayList<>();
-		List<Object> objectenLijst = new ArrayList<Object>();
 
 		Vak OOP = new Vak("OOP");
 		Vak OOAD = new Vak("OOAD");
@@ -138,25 +136,27 @@ public class ObjectenAanmaken {
 		slb1.addStudent(s1);
 		slb1.addStudent(s2);
 
-		objectenLijst.add(OOP);
-		objectenLijst.add(OOAD);
-		objectenLijst.add(SG14);
-		objectenLijst.add(SG15);
-		objectenLijst.add(s1);
-		objectenLijst.add(s2);
-		objectenLijst.add(s3);
-		objectenLijst.add(s4);
-		objectenLijst.add(s5);
-		objectenLijst.add(s6);
-		objectenLijst.add(d1);
-		objectenLijst.add(d2);
-		objectenLijst.add(slb1);
-		objectenLijst.add(kr1);
-		objectenLijst.add(kr2);
-		objectenLijst.add(dr1);
-		objectenLijst.add(dr2);
+		
+		Manager manager = Manager.getInstance();
+		manager.voegVakToe(OOP);
+		manager.voegVakToe(OOAD);
+		manager.voegKlasToe(SG14);
+		manager.voegKlasToe(SG15);
+		manager.voegStudentToe(s1);
+		manager.voegStudentToe(s2);
+		manager.voegStudentToe(s3);
+		manager.voegStudentToe(s4);
+		manager.voegStudentToe(s5);
+		manager.voegStudentToe(s6);
+		manager.voegDocentToe(d1);
+		manager.voegDocentToe(d2);
+		manager.voegSLBToe(slb1);
+		manager.voegRoosterToe(kr1);
+		manager.voegRoosterToe(kr2);
+		manager.voegRoosterToe(dr1);
+		manager.voegRoosterToe(dr2);
 
-		objectIO.writeObjectToFile(objectenLijst);
+		manager.schrijfWeg();
 	}
 
 }

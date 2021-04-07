@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import controllers.Objecten;
+import controllers.Manager;
 
 public class Student extends Gebruiker implements Serializable {
 
@@ -28,7 +28,7 @@ public class Student extends Gebruiker implements Serializable {
     	l.setStudent(stud);
     	lesAbsentieLijst.add(l);
     	
-    	Objecten.addLesAbsentie(l);
+    	Manager.getInstance().voeglesAbsentieToe(l);;
     }
     
     public boolean getAbsent(Les les) {

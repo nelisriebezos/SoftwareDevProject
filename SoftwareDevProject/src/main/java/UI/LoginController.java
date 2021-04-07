@@ -12,7 +12,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import controllers.Objecten;
+import controllers.Manager;
 import domeinKlassen.Docent;
 import domeinKlassen.Student;
 
@@ -25,7 +25,6 @@ public class LoginController {
 
 	public void LoginKnop(ActionEvent actionEvent) {	
 		if (checkDocent() || checkStudent()) {
-//			Objecten.setIngelogdPersoon(Objecten.getDocentenLijst().get(0));
 				Button source = (Button) actionEvent.getSource();
 				Stage stage2 = (Stage) source.getScene().getWindow();
 				stage2.close();
@@ -48,10 +47,10 @@ public class LoginController {
 		}
 	
 	public boolean checkDocent() {
-		for (Docent d : Objecten.getDocentenLijst()) {
+		for (Docent d : Manager.getInstance().getDocentenLijst()) {
 			if (WachtwoordPasswordField.getText().equals(d.getWachtwoord()) 
 					&& GebruikersnaamTextField.getText().equals(String.valueOf(d.getDocentNummer()))) {
-				Objecten.setIngelogdDocent(d);
+				Manager.getInstance().setIngelogdDocent(d);
 				bestandsNaam = "Home2.fxml";
 				return true;
 			}
@@ -60,10 +59,10 @@ public class LoginController {
 	}
 	
 	public boolean checkStudent() {
-		for (Student s : Objecten.getStudentenLijst()) {
+		for (Student s : Manager.getInstance().getStudentenLijst()) {
 			if (WachtwoordPasswordField.getText().equals(s.getWachtwoord())
 					&& GebruikersnaamTextField.getText().equals(String.valueOf( s.getLeerlingNummer()))) {
-				Objecten.setIngelogdStudent(s);
+				Manager.getInstance().setIngelogdStudent(s);
 				bestandsNaam = "Home.fxml";
 				return true;
 			}

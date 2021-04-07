@@ -14,8 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-import controllers.ControllerMethoden;
-import controllers.Objecten;
+import controllers.Manager;
 
 public class AbsentieBekijkenDocentenController {
 	public Label alAbsent;
@@ -27,12 +26,12 @@ public class AbsentieBekijkenDocentenController {
 	public ListView<String> lesAbsentView;  
 
 	public void initialize() {
-		List<Klas> klassenLijst = Objecten.getIngelogdDocent().getKlassenLijst();
+		List<Klas> klassenLijst = Manager.getInstance().getIngelogdDocent().getKlassenLijst();
 		klassenComboBox.setItems(FXCollections.observableList(klassenLijst));
 	}
 
 	public void Home(ActionEvent actionEvent) throws IOException {
-//		ControllerMethoden.writeObjectToFile(ControllerMethoden.writerObject());
+		Manager.getInstance().schrijfWeg();
 		
 		Button source = (Button) actionEvent.getSource();
 		Stage stage2 = (Stage) source.getScene().getWindow();

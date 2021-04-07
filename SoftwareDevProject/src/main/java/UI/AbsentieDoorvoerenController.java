@@ -2,7 +2,7 @@ package UI;
 
 
 
-import controllers.Objecten;
+import controllers.Manager;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -20,7 +20,7 @@ public class AbsentieDoorvoerenController {
 	public TextField eindTijd;
 	
     public void initialize() {	
-    	ingelogdPersoon.setText(Objecten.getIngelogdStudent().getVoorNaam());
+    	ingelogdPersoon.setText(Manager.getInstance().getIngelogdStudent().getVoorNaam());
     }
 
     public void Home(ActionEvent actionEvent) {

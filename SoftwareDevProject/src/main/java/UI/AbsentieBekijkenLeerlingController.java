@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-import controllers.Objecten;
+import controllers.Manager;
 import domeinKlassen.*;
 
 public class AbsentieBekijkenLeerlingController {
@@ -23,8 +23,8 @@ public class AbsentieBekijkenLeerlingController {
     public ListView absentieListView;
 
     public void initialize(){
-        naamLeerlingLabel.setText(Objecten.getIngelogdStudent().getVoorNaam());
-        List<Vak> vakken = Objecten.getIngelogdStudent().getVakken();
+        naamLeerlingLabel.setText(Manager.getInstance().getIngelogdStudent().getVoorNaam());
+        List<Vak> vakken = Manager.getInstance().getIngelogdStudent().getVakken();
         vakkenCombobox.setItems(FXCollections.observableList(vakken));
     }
 
@@ -40,15 +40,15 @@ public class AbsentieBekijkenLeerlingController {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String formatedDateTime = now.format(formatter);
-        if(!Objecten.getIngelogdStudent().getIsWelNietZiek()){
+        if(!Manager.getInstance().getIngelogdStudent().getIsWelNietZiek()){
             datumZiekLabel.setText("");
             ZiekmeldenKnop.setText("Ziekmelden");
-            Objecten.getIngelogdStudent().setWelNietZiek(true);
+            Manager.getInstance().getIngelogdStudent().setWelNietZiek(true);
         }
         else{
         datumZiekLabel.setText("Je bent ziekgemeld vanaf:\n" + formatedDateTime);
         ZiekmeldenKnop.setText("Beter melden");
-        Objecten.getIngelogdStudent().setWelNietZiek(false);
+        Manager.getInstance().getIngelogdStudent().setWelNietZiek(false);
         }
 
     }
@@ -57,7 +57,7 @@ public class AbsentieBekijkenLeerlingController {
         ObservableList<Object> studentnaam= FXCollections.observableArrayList(vakkenCombobox.getValue());
         vakkenListView.setItems(studentnaam);
         
-        List<Integer> absentieAantal = FXCollections.observableArrayList(Objecten.getIngelogdStudent().getTotaalAbsentieAantal());
+        List<Integer> absentieAantal = FXCollections.observableArrayList(Manager.getInstance().getIngelogdStudent().getTotaalAbsentieAantal());
         absentieListView.setItems((ObservableList) absentieAantal);
     }
 

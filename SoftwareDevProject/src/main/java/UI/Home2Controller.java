@@ -4,10 +4,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
-import controllers.Objecten;
-import domeinKlassen.Klas;
+import controllers.Manager;
 import domeinKlassen.Les;
-import domeinKlassen.Vak;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -46,7 +44,7 @@ public class Home2Controller {
 	
 	public void toonLessen() {
 		ObservableList<Les> lessen = FXCollections.observableArrayList();
-		List<Les> lessenLijst = Objecten.getIngelogdDocent().getRooster().getLessenLijst();
+		List<Les> lessenLijst = Manager.getInstance().getIngelogdDocent().getRooster().getLessenLijst();
 				for(Les les: lessenLijst) {
 					if(overzichtDatePicker.getValue().equals(les.getDag())) {
 						lessen.add(les);

@@ -16,9 +16,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
-import controllers.Objecten;
+import controllers.Manager;
 import domeinKlassen.Les;
-import domeinKlassen.Vak;
 
 public class HomeController {
 	public Button GeplandeAfwezigheidKnop;
@@ -65,7 +64,7 @@ public class HomeController {
 	
 	public void toonLessen() {
 		ObservableList<Les> lessen = FXCollections.observableArrayList();
-		List<Les> lessenLijst = Objecten.getIngelogdStudent().getKlas().getRooster().getLessenLijst();
+		List<Les> lessenLijst = Manager.getInstance().getIngelogdStudent().getKlas().getRooster().getLessenLijst();
 				for(Les les: lessenLijst) {
 					if(overzichtDatePicker.getValue().equals(les.getDag())) {
 						lessen.add(les);

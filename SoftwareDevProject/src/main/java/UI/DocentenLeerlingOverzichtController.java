@@ -29,8 +29,4 @@ public class DocentenLeerlingOverzichtController {
         newStage.showAndWait();
         initialize();
     }
-
-
-
-
 }
