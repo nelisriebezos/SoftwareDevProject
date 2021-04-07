@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import controllers.Objecten;
+
 public class Student extends Gebruiker implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,6 +27,8 @@ public class Student extends Gebruiker implements Serializable {
     	l.setLes(les);
     	l.setStudent(stud);
     	lesAbsentieLijst.add(l);
+    	
+    	Objecten.addLesAbsentie(l);
     }
     
     public boolean getAbsent(Les les) {

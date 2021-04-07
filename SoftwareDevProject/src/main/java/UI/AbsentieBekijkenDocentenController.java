@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
+import controllers.ControllerMethoden;
 import controllers.Objecten;
 
 public class AbsentieBekijkenDocentenController {
@@ -31,6 +32,8 @@ public class AbsentieBekijkenDocentenController {
 	}
 
 	public void Home(ActionEvent actionEvent) throws IOException {
+//		ControllerMethoden.writeObjectToFile(ControllerMethoden.writerObject());
+		
 		Button source = (Button) actionEvent.getSource();
 		Stage stage2 = (Stage) source.getScene().getWindow();
 		stage2.close();

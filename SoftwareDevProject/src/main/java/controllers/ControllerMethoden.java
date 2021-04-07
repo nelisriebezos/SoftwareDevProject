@@ -4,11 +4,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 
 public class ControllerMethoden {
 	private static final String filePath = "objecten.txt";
@@ -16,9 +13,26 @@ public class ControllerMethoden {
 	public static String getFilePath() {
 		return filePath;
 	}
+	
+	public static ArrayList<Object> writerObject() {
+		ArrayList<Object> objectenLijst = new ArrayList<>();
+		objectenLijst.add(Objecten.getStudentenLijst());
+		objectenLijst.add(Objecten.getDocentenLijst());
+		objectenLijst.add(Objecten.getVakkenLijst());
+		objectenLijst.add(Objecten.getKlassenLijst());
+		objectenLijst.add(Objecten.getLessenLijst());
+		objectenLijst.add(Objecten.getLesAbsentieLijst());
+		objectenLijst.add(Objecten.getRoosterLijst());
+		objectenLijst.add(Objecten.getSlbLijst());
+		
+		return objectenLijst;
+	}
 
-	public void writeObjectToFile(Object serObj) {
+	public static void writeObjectToFile(Object serObj) {
 		try {
+			PrintWriter leegmaker = new PrintWriter(filePath);
+			leegmaker.close();
+			
 			FileOutputStream fileOut = new FileOutputStream(filePath);
 			ObjectOutputStream objectout = new ObjectOutputStream(fileOut);
 

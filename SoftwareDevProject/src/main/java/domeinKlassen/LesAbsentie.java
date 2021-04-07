@@ -1,6 +1,11 @@
 package domeinKlassen;
 
-public class LesAbsentie {
+import java.io.Serializable;
+
+public class LesAbsentie implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	private Student student;
 	private Les les;
 
