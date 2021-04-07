@@ -41,20 +41,28 @@ public class AbsentieBekijkenDocentenController {
 		Klas geselecteerdeKlas = klassenComboBox.getValue();
 		List<Les> lessenLijst = geselecteerdeKlas.getRooster().getLessenLijst();
 		lesComboBox.setItems(FXCollections.observableList(lessenLijst));
+		ObservableList<Object> studentnaam = FXCollections.observableArrayList();
+		List<Integer> absentie = FXCollections.observableArrayList();
+		
+		for (Student s : geselecteerdeKlas.getStudentenLijst()) {
+			studentnaam.add(s);
+			absentie.add(s.getTotaalAbsentieAantal());
+		}
+		absentListView.setItems((ObservableList) absentie);
+		leerlingListView.setItems(FXCollections.observableArrayList(studentnaam));
+		
+		
 	}
 
 	public void selecteerLes(ActionEvent actionEvent) {
 		ObservableList<Object> studentnaam = FXCollections.observableArrayList();
-		List<Integer> absentie = FXCollections.observableArrayList();
+		
 		Les geselecteerdeLes = (Les) lesComboBox.getValue();
 
 		for (Student s : geselecteerdeLes.getRooster().getKlas().getStudentenLijst()) {
 			studentnaam.add(s);
-			absentie.add(s.getTotaalAbsentieAantal());
 		}
 		kiesLeerlingComboBox.setItems(studentnaam);
-		absentListView.setItems((ObservableList) absentie);
-		leerlingListView.setItems(FXCollections.observableArrayList(studentnaam));
 	}
 
 	public void zetAbsent(ActionEvent actionEvent) {
