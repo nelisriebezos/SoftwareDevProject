@@ -27,6 +27,15 @@ public class Student extends Gebruiker implements Serializable {
     	lesAbsentieLijst.add(l);
     }
     
+    public boolean getAbsent(Les les) {
+    	for (LesAbsentie la : lesAbsentieLijst) {
+    		if (la.getLes().equals(les)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
     public int getTotaalAbsentieAantal() {
     	if (lesAbsentieLijst == null) {
     		return 0;

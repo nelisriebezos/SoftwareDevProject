@@ -2,7 +2,6 @@ package UI;
 
 import domeinKlassen.Klas;
 import domeinKlassen.Les;
-import domeinKlassen.LesAbsentie;
 import domeinKlassen.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +17,7 @@ import java.util.List;
 import controllers.Objecten;
 
 public class AbsentieBekijkenDocentenController {
+	public Label alAbsent;
 	public ComboBox<Les> lesComboBox;
 	public ComboBox<Klas> klassenComboBox;
 	public ComboBox<Object> kiesLeerlingComboBox;
@@ -43,20 +43,19 @@ public class AbsentieBekijkenDocentenController {
 		lesComboBox.setItems(FXCollections.observableList(lessenLijst));
 		ObservableList<Object> studentnaam = FXCollections.observableArrayList();
 		List<Integer> absentie = FXCollections.observableArrayList();
-		
+
 		for (Student s : geselecteerdeKlas.getStudentenLijst()) {
 			studentnaam.add(s);
 			absentie.add(s.getTotaalAbsentieAantal());
 		}
 		absentListView.setItems((ObservableList) absentie);
 		leerlingListView.setItems(FXCollections.observableArrayList(studentnaam));
-		
-		
+
 	}
 
 	public void selecteerLes(ActionEvent actionEvent) {
 		ObservableList<Object> studentnaam = FXCollections.observableArrayList();
-		
+
 		Les geselecteerdeLes = (Les) lesComboBox.getValue();
 
 		for (Student s : geselecteerdeLes.getRooster().getKlas().getStudentenLijst()) {
@@ -69,13 +68,18 @@ public class AbsentieBekijkenDocentenController {
 		Les geselecteerdeLes = (Les) lesComboBox.getValue();
 		Student geselecteerdeStudent = (Student) kiesLeerlingComboBox.getValue();
 		List<Integer> absentie = FXCollections.observableArrayList();
-		
-		geselecteerdeStudent.setAbsent(geselecteerdeLes, geselecteerdeStudent);
-		
-		for (Student s : geselecteerdeLes.getRooster().getKlas().getStudentenLijst()) {
-			System.out.println(s.getTotaalAbsentieAantal());
-			absentie.add(s.getTotaalAbsentieAantal());
+
+		if (geselecteerdeStudent.getAbsent(geselecteerdeLes)) {
+			alAbsent.setText("Student is al absent");
+		} else {
+			alAbsent.setText("");
+			geselecteerdeStudent.setAbsent(geselecteerdeLes, geselecteerdeStudent);
+
+			for (Student s : geselecteerdeLes.getRooster().getKlas().getStudentenLijst()) {
+				System.out.println(s.getTotaalAbsentieAantal());
+				absentie.add(s.getTotaalAbsentieAantal());
+			}
+			absentListView.setItems((ObservableList) absentie);
 		}
-		absentListView.setItems((ObservableList) absentie);
 	}
 }

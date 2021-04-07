@@ -13,12 +13,15 @@
 		<Button layoutX="519.0" layoutY="30.0" mnemonicParsing="false" onAction="#Home" text="Home" />
 		<ComboBox fx:id="kiesLeerlingComboBox" layoutX="31.0" layoutY="350.0" prefWidth="150.0" />
 		<Label layoutX="29.0" layoutY="326.0" text="Selecteer een leerling" />
-		<ListView fx:id="absentListView" layoutX="300.0" layoutY="103.0" prefHeight="200.0" prefWidth="274.0" />
+		<ListView fx:id="absentListView" layoutX="300.0" layoutY="103.0" prefHeight="200.0" prefWidth="135.0" />
 		<ListView fx:id="leerlingListView" layoutX="26.0" layoutY="103.0" prefHeight="200.0" prefWidth="273.0" />
 		<Label layoutX="29.0" layoutY="86.0" text="Leerling" />
 		<Label layoutX="300.0" layoutY="86.0" text="Totaal absent" />
-      <Button layoutX="31.0" layoutY="388.0" mnemonicParsing="false" onAction="#zetAbsent" text="Zet absent" />
+      <Button layoutX="29.0" layoutY="400.0" mnemonicParsing="false" onAction="#zetAbsent" text="Zet absent" />
       <Label layoutX="286.0" layoutY="14.0" text="Les:" />
       <ComboBox fx:id="lesComboBox" layoutX="286.0" layoutY="30.0" onAction="#selecteerLes" prefWidth="150.0" />
+      <Label fx:id="alAbsent" layoutX="29.0" layoutY="375.0" text=" " textFill="RED" />
+      <ListView fx:id="lesAbsentView" layoutX="436.0" layoutY="103.0" prefHeight="200.0" prefWidth="135.0" />
+      <Label layoutX="436.0" layoutY="86.0" text="Les absent" />
 	</children>
 </AnchorPane>
