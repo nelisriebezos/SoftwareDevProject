@@ -23,6 +23,7 @@ public class AbsentieBekijkenDocentenController {
 	public ComboBox<Object> kiesLeerlingComboBox;
 	public ListView<Integer> absentListView;
 	public ListView<Object> leerlingListView;
+	public ListView<String> lesAbsentView;  
 
 	public void initialize() {
 		List<Klas> klassenLijst = Objecten.getIngelogdDocent().getKlassenLijst();
@@ -55,12 +56,20 @@ public class AbsentieBekijkenDocentenController {
 
 	public void selecteerLes(ActionEvent actionEvent) {
 		ObservableList<Object> studentnaam = FXCollections.observableArrayList();
+		ObservableList<String> lesAbsent = FXCollections.observableArrayList();
 
 		Les geselecteerdeLes = (Les) lesComboBox.getValue();
 
 		for (Student s : geselecteerdeLes.getRooster().getKlas().getStudentenLijst()) {
 			studentnaam.add(s);
+			if(s.getAbsent(geselecteerdeLes)) {
+				lesAbsent.add("ja");
+			}
+			else {
+				lesAbsent.add("nee");
+			}
 		}
+		lesAbsentView.setItems(lesAbsent);
 		kiesLeerlingComboBox.setItems(studentnaam);
 	}
 
@@ -68,17 +77,24 @@ public class AbsentieBekijkenDocentenController {
 		Les geselecteerdeLes = (Les) lesComboBox.getValue();
 		Student geselecteerdeStudent = (Student) kiesLeerlingComboBox.getValue();
 		List<Integer> absentie = FXCollections.observableArrayList();
+		ObservableList<String> lesAbsent = FXCollections.observableArrayList();
 
 		if (geselecteerdeStudent.getAbsent(geselecteerdeLes)) {
-			alAbsent.setText("Student is al absent");
+			alAbsent.setText("Student is al absent.");
 		} else {
 			alAbsent.setText("");
 			geselecteerdeStudent.setAbsent(geselecteerdeLes, geselecteerdeStudent);
 
 			for (Student s : geselecteerdeLes.getRooster().getKlas().getStudentenLijst()) {
-				System.out.println(s.getTotaalAbsentieAantal());
+				if(s.getAbsent(geselecteerdeLes)) {
+					lesAbsent.add("ja");
+				}
+				else {
+					lesAbsent.add("nee");
+				}
 				absentie.add(s.getTotaalAbsentieAantal());
 			}
+			lesAbsentView.setItems(lesAbsent);
 			absentListView.setItems((ObservableList) absentie);
 		}
 	}
