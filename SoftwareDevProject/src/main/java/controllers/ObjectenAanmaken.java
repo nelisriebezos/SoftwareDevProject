@@ -102,7 +102,6 @@ public class ObjectenAanmaken {
 		SG14.addStudent(s3);
 		SG14.addDocent(d1);
 		SG14.addDocent(d2);
-		SG14.setSlb(slb1);
 		SG14.addVak(OOP);
 		SG14.addVak(OOAD);
 		SG14.setRooster(kr1);
@@ -112,7 +111,6 @@ public class ObjectenAanmaken {
 		SG15.addStudent(s6);
 		SG15.addDocent(d1);
 		SG15.addDocent(d2);
-		SG15.setSlb(slb1);
 		SG15.addVak(OOP);
 		SG15.addVak(OOAD);
 		SG15.setRooster(kr2);
