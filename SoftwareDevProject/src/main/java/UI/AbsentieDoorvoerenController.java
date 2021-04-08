@@ -38,8 +38,13 @@ public class AbsentieDoorvoerenController {
     }
     
     public void einddatumDatePicker(ActionEvent actionEvent) throws Exception{
-    	try{if(beginDatum.getValue().equals(null)) {misluktLabel.setText("Begindatum is leeg.");}}
-    	catch(RuntimeException e) {misluktLabel.setText("Begindatum is leeg. Vul de begindatum in en dan opnieuw de einddatum."); System.out.println("begindatum is leeg. Vul de begindatum in en dan opnieuw de einddatum.");}
+    	try {
+    		if(beginDatum.getValue().equals(null)) {
+    			misluktLabel.setText("Begindatum is leeg.");
+    		}
+    	} catch(RuntimeException e) {misluktLabel.setText("Begindatum is leeg. Vul de begindatum in en dan opnieuw de einddatum.");
+    	System.out.println("begindatum is leeg. Vul de begindatum in en dan opnieuw de einddatum.");
+    	}
     	if(beginDatum.getValue().isAfter(eindDatum.getValue())) {
     		misluktLabel.setText("Voer een einddatum in die verder is dan de begindatum.");
     	}
