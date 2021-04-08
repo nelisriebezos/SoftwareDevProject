@@ -136,23 +136,23 @@ public class ObjectenAanmaken {
 
 		
 		Manager manager = Manager.getInstance();
-		manager.voegVakToe(OOP);
-		manager.voegVakToe(OOAD);
-		manager.voegKlasToe(SG14);
-		manager.voegKlasToe(SG15);
-		manager.voegStudentToe(s1);
-		manager.voegStudentToe(s2);
-		manager.voegStudentToe(s3);
-		manager.voegStudentToe(s4);
-		manager.voegStudentToe(s5);
-		manager.voegStudentToe(s6);
-		manager.voegDocentToe(d1);
-		manager.voegDocentToe(d2);
-		manager.voegSLBToe(slb1);
-		manager.voegRoosterToe(kr1);
-		manager.voegRoosterToe(kr2);
-		manager.voegRoosterToe(dr1);
-		manager.voegRoosterToe(dr2);
+		manager.addVak(OOP);
+		manager.addVak(OOAD);
+		manager.addKlas(SG14);
+		manager.addKlas(SG15);
+		manager.addStudent(s1);
+		manager.addStudent(s2);
+		manager.addStudent(s3);
+		manager.addStudent(s4);
+		manager.addStudent(s5);
+		manager.addStudent(s6);
+		manager.addDocent(d1);
+		manager.addDocent(d2);
+		manager.addSLB(slb1);
+		manager.addRooster(kr1);
+		manager.addRooster(kr2);
+		manager.addRooster(dr1);
+		manager.addRooster(dr2);
 
 		manager.schrijfWeg();
 	}

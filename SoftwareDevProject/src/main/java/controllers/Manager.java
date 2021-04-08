@@ -80,42 +80,42 @@ public class Manager implements Serializable {
 		}
 	}
 	
-	public void voegStudentToe(Student s) {
+	public void addStudent(Student s) {
 		if (!studentenLijst.contains(s))
 			studentenLijst.add(s);
 	}
 	
-	public void voegDocentToe(Docent d) {
+	public void addDocent(Docent d) {
 		if (!docentenLijst.contains(d))
 			docentenLijst.add(d);
 	}
 	
-	public void voegVakToe(Vak v) {
+	public void addVak(Vak v) {
 		if (!vakkenLijst.contains(v))
 			vakkenLijst.add(v);
 	}
 	
-	public void voegKlasToe(Klas k) {
+	public void addKlas(Klas k) {
 		if (!klassenLijst.contains(k))
 			klassenLijst.add(k);
 	}
 	
-	public void voegLesToe(Les l) {
+	public void addLes(Les l) {
 		if (!lessenLijst.contains(l))
 			lessenLijst.add(l);
 	}
 
-	public void voeglesAbsentieToe(LesAbsentie la) {
+	public void addlesAbsentie(LesAbsentie la) {
 		if (!lesAbsentieLijst.contains(la))
 			lesAbsentieLijst.add(la);
 	}
 	
-	public void voegRoosterToe(Rooster r) {
+	public void addRooster(Rooster r) {
 		if (!roosterLijst.contains(r))
 			roosterLijst.add(r);
 	}
 	
-	public void voegSLBToe(SLB slb) {
+	public void addSLB(SLB slb) {
 		if(!slbLijst.contains(slb))
 			slbLijst.add(slb);
 	}

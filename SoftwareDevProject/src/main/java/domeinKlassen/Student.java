@@ -28,7 +28,7 @@ public class Student extends Gebruiker implements Serializable {
     	l.setStudent(stud);
     	lesAbsentieLijst.add(l);
     	
-    	Manager.getInstance().voeglesAbsentieToe(l);;
+    	Manager.getInstance().addlesAbsentie(l);;
     }
     
     public boolean getAbsent(Les les) {
