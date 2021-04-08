@@ -44,11 +44,11 @@ public class AbsentieDoorvoerenController {
     		}
     	} catch(RuntimeException e) {
     		this.misluktLabel.setText("Begindatum is leeg. Vul de begindatum in en dan opnieuw de einddatum.");
-    		System.out.println("begindatum is leeg. Vul de begindatum in en dan opnieuw de einddatum.");
     	}
     	if(beginDatum.getValue().isAfter(eindDatum.getValue())) {
     		this.misluktLabel.setText("Voer een einddatum in die verder is dan de begindatum.");
+    	} else {
+    		this.misluktLabel.setText(null);
     	}
-    	
     }
 }
