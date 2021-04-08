@@ -7,7 +7,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
@@ -37,7 +36,7 @@ public class AbsentieBekijkenDocentenController {
 		Stage stage2 = (Stage) source.getScene().getWindow();
 		stage2.close();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Home2.fxml"));
-		Parent root = loader.load();
+		loader.load();
 	}
 
 	public void kiesLeerlingOnAction(ActionEvent actionEvent) {
