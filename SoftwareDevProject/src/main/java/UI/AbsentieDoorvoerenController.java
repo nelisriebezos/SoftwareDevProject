@@ -3,6 +3,9 @@ package UI;
 
 
 import controllers.Manager;
+import domeinKlassen.Les;
+import domeinKlassen.Student;
+import domeinKlassen.Vak;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -10,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.time.LocalDate;
+import controllers.Utils;
 
 
 public class AbsentieDoorvoerenController {
@@ -35,8 +39,19 @@ public class AbsentieDoorvoerenController {
     }
     
     public void opslaan(ActionEvent actionEvent) {
-    	if (misluktLabel.getText().equals(null)) {
-    		
+		Student student = Manager.getInstance().getIngelogdStudent();
+		for(Vak vak: student.getKlas().getVakkenLijst()) {
+			for(Les les: vak.getLessenLijst()) {
+				if(((les.getDag().isAfter(beginDatum.getValue()) || (les.getDag().isEqual(beginDatum.getValue())) 
+						&& ((les.getDag().isBefore(eindDatum.getValue())) || (les.getDag().isEqual(eindDatum.getValue())))) 
+						&& Utils.compareTime(beginTijd.getText(), eindTijd.getText()) >= 0)) {
+					student.setAbsent(les, student);
+					System.out.println(les.toString());
+				}
+			}
+		Button source = (Button)actionEvent.getSource();
+        Stage stage2 = (Stage)source.getScene().getWindow();
+        stage2.close();
     	}
     }
     
@@ -45,11 +60,6 @@ public class AbsentieDoorvoerenController {
     		this.misluktLabel.setText("Begintijd is leeg.");
     	} else if(!beginTijd.getText().matches("[0-2][0-9]:[0-5][0-9]")) {
     		this.misluktLabel.setText("Voer een geldige begintijd in.");
-    	} else if(Integer.parseInt(beginTijd.getText().split(":")[0]) > Integer.parseInt(eindTijd.getText().split(":")[0]) && !eindTijd.getText().equals(null)) {
-    		this.misluktLabel.setText("Begintijd ligt voor eindtijd");
-    	} else if((Integer.parseInt(beginTijd.getText().split(":")[0]) == Integer.parseInt(eindTijd.getText().split(":")[0]) && !eindTijd.getText().equals(null)) 
-    			&& Integer.parseInt(beginTijd.getText().split(":")[1]) > Integer.parseInt(eindTijd.getText().split(":")[1]) && !eindTijd.getText().equals(null)) {
-    		this.misluktLabel.setText("Begintijd ligt voor eindtijd");
     	} else {
     		this.misluktLabel.setText(null);
     	}
@@ -75,8 +85,6 @@ public class AbsentieDoorvoerenController {
 			this.misluktLabel.setText("Begindatum is leeg.");
 		} else if(beginDatum.getValue().isBefore(LocalDate.now())) {
 			this.misluktLabel.setText("Begindatum ligt in het verleden.");
-		} else if(beginDatum.getValue().isAfter(eindDatum.getValue()) && !eindDatum.getValue().equals(null)) {
-			this.misluktLabel.setText("Begindatum ligt voor eindatum");
 		} else {
 			this.misluktLabel.setText(null);
 		}
