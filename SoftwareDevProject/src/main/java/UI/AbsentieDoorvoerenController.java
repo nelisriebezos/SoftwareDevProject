@@ -35,7 +35,9 @@ public class AbsentieDoorvoerenController {
     }
     
     public void opslaan(ActionEvent actionEvent) {
-    	
+    	if (misluktLabel.getText().equals(null)) {
+    		
+    	}
     }
     
     public void begintijdTextField(ActionEvent actionevent) {
@@ -44,6 +46,9 @@ public class AbsentieDoorvoerenController {
     	} else if(!beginTijd.getText().matches("[0-2][0-9]:[0-5][0-9]")) {
     		this.misluktLabel.setText("Voer een geldige begintijd in.");
     	} else if(Integer.parseInt(beginTijd.getText().split(":")[0]) > Integer.parseInt(eindTijd.getText().split(":")[0]) && !eindTijd.getText().equals(null)) {
+    		this.misluktLabel.setText("Begintijd ligt voor eindtijd");
+    	} else if((Integer.parseInt(beginTijd.getText().split(":")[0]) == Integer.parseInt(eindTijd.getText().split(":")[0]) && !eindTijd.getText().equals(null)) 
+    			&& Integer.parseInt(beginTijd.getText().split(":")[1]) > Integer.parseInt(eindTijd.getText().split(":")[1]) && !eindTijd.getText().equals(null)) {
     		this.misluktLabel.setText("Begintijd ligt voor eindtijd");
     	} else {
     		this.misluktLabel.setText(null);
@@ -56,6 +61,9 @@ public class AbsentieDoorvoerenController {
     	} else if(!beginTijd.getText().matches("[0-2][0-9]:[0-5][0-9]")) {
     		this.misluktLabel.setText("Voer een geldige eindtijd in.");
     	} else if(Integer.parseInt(beginTijd.getText().split(":")[0]) > Integer.parseInt(eindTijd.getText().split(":")[0]) && !beginTijd.getText().equals(null)) {
+    		this.misluktLabel.setText("Eindtijd ligt voor begintijd");
+    	} else if((Integer.parseInt(beginTijd.getText().split(":")[0]) == Integer.parseInt(eindTijd.getText().split(":")[0]) && !beginTijd.getText().equals(null)) 
+    			&& Integer.parseInt(beginTijd.getText().split(":")[1]) > Integer.parseInt(eindTijd.getText().split(":")[1]) && !beginTijd.getText().equals(null)) {
     		this.misluktLabel.setText("Eindtijd ligt voor begintijd");
     	} else {
     		this.misluktLabel.setText(null);
