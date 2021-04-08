@@ -13,7 +13,7 @@ public class Student extends Gebruiker implements Serializable {
 
     private int leerlingNummer;
     private Klas klas;
-    private boolean isWelNietZiek;
+    private boolean isWelNietZiek = false;
     ArrayList<LesAbsentie> lesAbsentieLijst = new ArrayList<>();
 
 
