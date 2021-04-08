@@ -30,7 +30,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <DatePicker fx:id="beginDatum" />
+                        <DatePicker fx:id="beginDatum" onAction="#begindatumDatePicker" />
                      </children>
                   </HBox>
                   <HBox prefHeight="62.0" prefWidth="266.0">
@@ -40,7 +40,7 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="beginTijd" />
+                        <TextField fx:id="beginTijd" onAction="#begintijdTextField" />
                      </children>
                   </HBox>
                </children>
@@ -63,7 +63,7 @@
                               <Insets left="10.0" right="21.2" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="eindTijd" />
+                        <TextField fx:id="eindTijd" onAction="#eindtijdTextField" />
                      </children></HBox>
                </children>
             </HBox>
