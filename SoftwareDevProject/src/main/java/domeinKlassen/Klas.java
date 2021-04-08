@@ -49,15 +49,15 @@ public class Klas implements Serializable {
     }
 
     public List<Student> getStudentenLijst() {
-        return Collections.unmodifiableList(studentenLijst);
+        return Collections.unmodifiableList(this.studentenLijst);
     }
 
     public List<Docent> getDocentenLijst() {
-        return Collections.unmodifiableList(docentenLijst);
+        return Collections.unmodifiableList(this.docentenLijst);
     }
 
     public List<Vak> getVakkenLijst() {
-        return Collections.unmodifiableList(vakkenLijst);
+        return Collections.unmodifiableList(this.vakkenLijst);
     }
     
     public Rooster getRooster() {

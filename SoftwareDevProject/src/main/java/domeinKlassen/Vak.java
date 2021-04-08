@@ -48,15 +48,15 @@ public class Vak implements Serializable {
     }
 
     public List<Docent> getDocentenLijst() {
-        return Collections.unmodifiableList(docentenLijst);
+        return Collections.unmodifiableList(this.docentenLijst);
     }
 
     public List<Klas> getKlassenLijst() {
-        return Collections.unmodifiableList(klassenLijst);
+        return Collections.unmodifiableList(this.klassenLijst);
     }
 
     public List<Les> getLessenLijst() {
-        return Collections.unmodifiableList(lessenLijst);
+        return Collections.unmodifiableList(this.lessenLijst);
     }
 
     @Override

@@ -25,7 +25,7 @@ public class HomeController {
 	public ListView<Les> vakkenListView;
 
 	public void initialize() {
-		overzichtDatePicker.setValue(LocalDate.now());
+		this.overzichtDatePicker.setValue(LocalDate.now());
         toonLessen();
 	}
 
@@ -70,17 +70,17 @@ public class HomeController {
 						lessen.add(les);
 					}
 				}
-				vakkenListView.setItems(FXCollections.observableArrayList(lessen));
+				this.vakkenListView.setItems(FXCollections.observableArrayList(lessen));
 			}
 	
 	public void toonVorigeDag(ActionEvent actionEvent) {
 		
-        LocalDate dagEerder = overzichtDatePicker.getValue().minusDays(1);
-        overzichtDatePicker.setValue(dagEerder);
+        LocalDate dagEerder = this.overzichtDatePicker.getValue().minusDays(1);
+        this.overzichtDatePicker.setValue(dagEerder);
     }
 
     public void toonVolgendeDag(ActionEvent actionEvent) {
-        LocalDate dagLater = overzichtDatePicker.getValue().plusDays(1);
-        overzichtDatePicker.setValue(dagLater);
+        LocalDate dagLater = this.overzichtDatePicker.getValue().plusDays(1);
+        this.overzichtDatePicker.setValue(dagLater);
 }
     }

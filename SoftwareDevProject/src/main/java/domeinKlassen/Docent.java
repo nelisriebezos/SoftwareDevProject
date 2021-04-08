@@ -41,15 +41,15 @@ public class Docent extends Gebruiker implements Serializable {
     }
 
     public List<Klas> getKlassenLijst() {
-        return Collections.unmodifiableList(klassenLijst);
+        return Collections.unmodifiableList(this.klassenLijst);
     }
 
     public List<Vak> getVakkenLijst() {
-        return Collections.unmodifiableList(vakkenLijst);
+        return Collections.unmodifiableList(this.vakkenLijst);
     }
     
     public Rooster getRooster() {
-		return rooster;
+		return this.rooster;
 	}
 
 	public void setRooster(Rooster rooster) {

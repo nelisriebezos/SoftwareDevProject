@@ -51,7 +51,7 @@ public class Les implements Serializable{
     }
     
     public Rooster getRooster() {
-		return rooster;
+		return this.rooster;
 	}
     
     public void setKlas(Klas klas) {

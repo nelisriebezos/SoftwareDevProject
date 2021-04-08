@@ -82,86 +82,86 @@ public class Manager implements Serializable {
 	
 	public void addStudent(Student s) {
 		if (!studentenLijst.contains(s))
-			studentenLijst.add(s);
+			this.studentenLijst.add(s);
 	}
 	
 	public void addDocent(Docent d) {
 		if (!docentenLijst.contains(d))
-			docentenLijst.add(d);
+			this.docentenLijst.add(d);
 	}
 	
 	public void addVak(Vak v) {
 		if (!vakkenLijst.contains(v))
-			vakkenLijst.add(v);
+			this.vakkenLijst.add(v);
 	}
 	
 	public void addKlas(Klas k) {
 		if (!klassenLijst.contains(k))
-			klassenLijst.add(k);
+			this.klassenLijst.add(k);
 	}
 	
 	public void addLes(Les l) {
 		if (!lessenLijst.contains(l))
-			lessenLijst.add(l);
+			this.lessenLijst.add(l);
 	}
 
 	public void addlesAbsentie(LesAbsentie la) {
 		if (!lesAbsentieLijst.contains(la))
-			lesAbsentieLijst.add(la);
+			this.lesAbsentieLijst.add(la);
 	}
 	
 	public void addRooster(Rooster r) {
 		if (!roosterLijst.contains(r))
-			roosterLijst.add(r);
+			this.roosterLijst.add(r);
 	}
 	
 	public void addSLB(SLB slb) {
 		if(!slbLijst.contains(slb))
-			slbLijst.add(slb);
+			this.slbLijst.add(slb);
 	}
 	
 	public Student getIngelogdStudent() {
-		return ingelogdStudent;
+		return this.ingelogdStudent;
 	}
 	
 	public Docent getIngelogdDocent() {
-		return ingelogdDocent;
+		return this.ingelogdDocent;
 	}
 	
 	public Object getIngelogdPersoon() {
-		return ingelogdPersoon;
+		return this.ingelogdPersoon;
 	}
 	
 	public ArrayList<Student> getStudentenLijst() {
-		return studentenLijst;
+		return this.studentenLijst;
 	}
 	
 	public ArrayList<Docent> getDocentenLijst() {
-		return docentenLijst;
+		return this.docentenLijst;
 	}
 	
 	public ArrayList<Vak> getVakkenLijst() {
-		return vakkenLijst;
+		return this.vakkenLijst;
 	}
 	
 	public ArrayList<Klas> getKlassenLijst() {
-		return klassenLijst;
+		return this.klassenLijst;
 	}
 	
 	public ArrayList<Les> getLessenLijst() {
-		return lessenLijst;
+		return this.lessenLijst;
 	}
 	
 	public ArrayList<LesAbsentie> getLesAbsentieLijst() {
-		return lesAbsentieLijst;
+		return this.lesAbsentieLijst;
 	}
 	
 	public ArrayList<Rooster> getRoosterLijst() {
-		return roosterLijst;
+		return this.roosterLijst;
 	}
 	
 	public ArrayList<SLB> getSlbLijst() {
-		return slbLijst;
+		return this.slbLijst;
 	}
 	
 	public static String getFilepath() {

@@ -26,7 +26,7 @@ public class Student extends Gebruiker implements Serializable {
     	LesAbsentie l = new LesAbsentie();
     	l.setLes(les);
     	l.setStudent(stud);
-    	lesAbsentieLijst.add(l);
+    	this.lesAbsentieLijst.add(l);
     	
     	Manager.getInstance().addlesAbsentie(l);;
     }
@@ -44,7 +44,7 @@ public class Student extends Gebruiker implements Serializable {
     	if (lesAbsentieLijst == null) {
     		return 0;
     	}else {
-    		return lesAbsentieLijst.size();
+    		return this.lesAbsentieLijst.size();
     	}
     }
  

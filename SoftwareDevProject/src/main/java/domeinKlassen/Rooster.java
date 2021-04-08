@@ -25,15 +25,15 @@ public class Rooster implements Serializable{
 	}
 
 	public Docent getDocent() {
-		return docent;
+		return this.docent;
 	}
 	
 	public Klas getKlas() {
-		return klas;
+		return this.klas;
 	}
 	
 	public ArrayList<Les> getLessenLijst() {
-		return lessenLijst;
+		return this.lessenLijst;
 	}
 
 	public void setDocent(Docent docent) {
