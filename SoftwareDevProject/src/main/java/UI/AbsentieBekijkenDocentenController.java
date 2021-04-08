@@ -50,7 +50,7 @@ public class AbsentieBekijkenDocentenController {
 			studentnaam.add(s);
 			absentie.add(s.getTotaalAbsentieAantal());
 		}
-		absentListView.setItems((ObservableList) absentie);
+		absentListView.setItems((ObservableList<Integer>) absentie);
 		leerlingListView.setItems(FXCollections.observableArrayList(studentnaam));
 
 	}
@@ -96,7 +96,7 @@ public class AbsentieBekijkenDocentenController {
 				absentie.add(s.getTotaalAbsentieAantal());
 			}
 			lesAbsentView.setItems(lesAbsent);
-			absentListView.setItems((ObservableList) absentie);
+			absentListView.setItems((ObservableList<Integer>) absentie);
 		}
 	}
 }

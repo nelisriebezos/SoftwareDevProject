@@ -22,7 +22,7 @@ import domeinKlassen.Les;
 public class HomeController {
 	public Button GeplandeAfwezigheidKnop;
 	public DatePicker overzichtDatePicker;
-	public ListView vakkenListView;
+	public ListView<Les> vakkenListView;
 
 	public void initialize() {
 		overzichtDatePicker.setValue(LocalDate.now());

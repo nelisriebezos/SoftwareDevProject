@@ -18,10 +18,10 @@ import domeinKlassen.*;
 public class AbsentieBekijkenLeerlingController {
 	public Label datumZiekLabel;
 	public Button ZiekmeldenKnop;
-	public ComboBox vakkenCombobox;
-	public ListView vakkenListView;
+	public ComboBox<Vak> vakkenCombobox;
+	public ListView<Vak> vakkenListView;
 	public Label naamLeerlingLabel;
-	public ListView absentieListView;
+	public ListView<Integer> absentieListView;
 
 	public void initialize() {
 		naamLeerlingLabel.setText(Manager.getInstance().getIngelogdStudent().getVoorNaam());
@@ -69,13 +69,13 @@ public class AbsentieBekijkenLeerlingController {
 	}
 
 	public void VakkengekozenOnAction(ActionEvent actionEvent) {
-		ObservableList<Object> studentnaam = FXCollections.observableArrayList(vakkenCombobox.getValue());
+		ObservableList<Vak> studentnaam = FXCollections.observableArrayList(vakkenCombobox.getValue());
 		vakkenListView.setItems(studentnaam);
 
 		List<Les> lessenlijst = Manager.getInstance().getIngelogdStudent().getKlas().getRooster().getLessenLijst();
 		List<Integer> absentieAantal = FXCollections
 				.observableArrayList(Manager.getInstance().getIngelogdStudent().getTotaalAbsentieAantal());
-		absentieListView.setItems((ObservableList) absentieAantal);
+		absentieListView.setItems((ObservableList<Integer>) absentieAantal);
 	}
 
 }
