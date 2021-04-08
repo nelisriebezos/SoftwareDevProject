@@ -15,7 +15,9 @@ import domeinKlassen.Docent;
 import domeinKlassen.Gebruiker;
 import domeinKlassen.Klas;
 import domeinKlassen.Les;
+import domeinKlassen.LesAbsentie;
 import domeinKlassen.Rooster;
+import domeinKlassen.Student;
 import domeinKlassen.Vak;
 
 public class ApplicationTest {
@@ -136,22 +138,116 @@ public class ApplicationTest {
 	class testLesAbsentie {
 		@Nested
 		class testGet {
-
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testGetStudentTrue(String email, String password, String voornaam, String achternaam, int leerlingnummer) {
+				LesAbsentie absentie = new LesAbsentie();
+				Student student = new Student(email, password, voornaam, achternaam, leerlingnummer);
+				absentie.setStudent(student);
+				Assertions.assertThat(absentie.getStudent()).isEqualTo(student);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testGetStudentFalse(String email, String password, String voornaam, String achternaam, int leerlingnummer) {
+				LesAbsentie absentie = new LesAbsentie();
+				Student student = new Student(email, password, voornaam, achternaam, leerlingnummer);
+				Assertions.assertThat(absentie.getStudent()).isNotEqualTo(student);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10,a",
+				"test1,10:11,11:11,b",
+				"test2,10:12,11:12,c",
+				"test3,10:13,11:13,d",
+			})
+			public void testGetLesTrue(String naam, String beginTijd, String eindTijd, String vak) {
+				LesAbsentie absentie = new LesAbsentie();
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(vak));
+				absentie.setLes(les);
+				Assertions.assertThat(absentie.getLes()).isEqualTo(les);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10,a",
+				"test1,10:11,11:11,b",
+				"test2,10:12,11:12,c",
+				"test3,10:13,11:13,d",
+			})
+			public void testGetLesFalse(String naam, String beginTijd, String eindTijd, String vak) {
+				LesAbsentie absentie = new LesAbsentie();
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(vak));
+				Assertions.assertThat(absentie.getLes()).isNotEqualTo(les);
+			}
 		}
 		
 		@Nested
 		class testSet {
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testSetStudentTrue(String email, String password, String voornaam, String achternaam, int leerlingnummer) {
+				LesAbsentie absentie = new LesAbsentie();
+				Student student = new Student(email, password, voornaam, achternaam, leerlingnummer);
+				absentie.setStudent(student);
+				Assertions.assertThat(absentie.getStudent()).isEqualTo(student);
+			}
 			
-		}
-		
-		@Nested
-		class testAdd {
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testSetStudentFalse(String email, String password, String voornaam, String achternaam, int leerlingnummer) {
+				LesAbsentie absentie = new LesAbsentie();
+				Student student = new Student(email, password, voornaam, achternaam, leerlingnummer);
+				Assertions.assertThat(absentie.getStudent()).isNotEqualTo(student);
+			}
 			
-		}
-		
-		@Nested
-		class testRemove {
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10,a",
+				"test1,10:11,11:11,b",
+				"test2,10:12,11:12,c",
+				"test3,10:13,11:13,d",
+			})
+			public void testSetLesTrue(String naam, String beginTijd, String eindTijd, String vak) {
+				LesAbsentie absentie = new LesAbsentie();
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(vak));
+				absentie.setLes(les);
+				Assertions.assertThat(absentie.getLes()).isEqualTo(les);
+			}
 			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10,a",
+				"test1,10:11,11:11,b",
+				"test2,10:12,11:12,c",
+				"test3,10:13,11:13,d",
+			})
+			public void testSetLesFalse(String naam, String beginTijd, String eindTijd, String vak) {
+				LesAbsentie absentie = new LesAbsentie();
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(vak));
+				Assertions.assertThat(absentie.getLes()).isNotEqualTo(les);
+			}
 		}
 	}
 	
