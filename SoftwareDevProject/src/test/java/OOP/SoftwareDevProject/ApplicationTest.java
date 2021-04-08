@@ -1,5 +1,6 @@
 package OOP.SoftwareDevProject;
 
+import java.util.List;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -17,6 +18,7 @@ import domeinKlassen.Klas;
 import domeinKlassen.Les;
 import domeinKlassen.LesAbsentie;
 import domeinKlassen.Rooster;
+import domeinKlassen.SLB;
 import domeinKlassen.Student;
 import domeinKlassen.Vak;
 
@@ -427,22 +429,106 @@ public class ApplicationTest {
 	class testSLB {
 		@Nested
 		class testGet {
-
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testGetStudentenLijstTrue(String email, String password, String voornaam, String achternaam, int studentNummer) {
+				SLB slb = new SLB(email, password, voornaam, achternaam);
+				List<Student> studenten = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					studenten.add(new Student(email, password, voornaam, achternaam, studentNummer + i));
+				}
+				slb.setStudentenLijst(studenten);
+				Assertions.assertThat(slb.getStudentenLijst()).isEqualTo(studenten);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testGetStudentenLijstFalse(String email, String password, String voornaam, String achternaam, int studentNummer) {
+				SLB slb = new SLB(email, password, voornaam, achternaam);
+				List<Student> studenten = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					studenten.add(new Student(email, password, voornaam, achternaam, studentNummer + i));
+				}
+				Assertions.assertThat(slb.getStudentenLijst()).isNotEqualTo(studenten);
+			}
 		}
 		
 		@Nested
 		class testSet {
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testSetStudentenLijstTrue(String email, String password, String voornaam, String achternaam, int studentNummer) {
+				SLB slb = new SLB(email, password, voornaam, achternaam);
+				List<Student> studenten = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					studenten.add(new Student(email, password, voornaam, achternaam, studentNummer + i));
+				}
+				slb.setStudentenLijst(studenten);
+				Assertions.assertThat(slb.getStudentenLijst()).isEqualTo(studenten);
+			}
 			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testSetStudentenLijstFalse(String email, String password, String voornaam, String achternaam, int studentNummer) {
+				SLB slb = new SLB(email, password, voornaam, achternaam);
+				List<Student> studenten = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					studenten.add(new Student(email, password, voornaam, achternaam, studentNummer + i));
+				}
+				Assertions.assertThat(slb.getStudentenLijst()).isNotEqualTo(studenten);
+			}
 		}
 		
 		@Nested
 		class testAdd {
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testAddStudentenLijstTrue(String email, String password, String voornaam, String achternaam, int studentNummer) {
+				SLB slb = new SLB(email, password, voornaam, achternaam);
+				List<Student> studenten = new ArrayList<>();
+				Student student = new Student(email, password, voornaam, achternaam, studentNummer);
+				slb.addStudent(student);
+				Assertions.assertThat(slb.getStudentenLijst()).contains(student);
+			}
 			
-		}
-		
-		@Nested
-		class testRemove {
-			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testAddStudentenLijstFalse(String email, String password, String voornaam, String achternaam, int studentNummer) {
+				SLB slb = new SLB(email, password, voornaam, achternaam);
+				List<Student> studenten = new ArrayList<>();
+				Student student = new Student(email, password, voornaam, achternaam, studentNummer);
+				Assertions.assertThat(slb.getStudentenLijst()).doesNotContain(student);
+			}
 		}
 	}
 	
