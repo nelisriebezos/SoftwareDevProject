@@ -25,7 +25,178 @@ import domeinKlassen.Vak;
 public class ApplicationTest {
 	@Nested
 	class testDocent {
+		@Nested
+		class testGet {
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetDocentNummerTrue(int docentNummer) {
+				Docent docent = new Docent("test", "test", "test", "test", docentNummer);
+				Assertions.assertThat(docent.getDocentNummer()).isEqualTo(docentNummer);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetDocentNummerFalse(int docentNummer) {
+				Docent docent = new Docent("test", "test", "test", "test", docentNummer);
+				Assertions.assertThat(docent.getDocentNummer()).isNotEqualTo(docentNummer + 1);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetKlassenLijstTrue(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				List<Klas> klassen = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Klas klas = new Klas(i);
+					docent.addKlas(klas);
+					klassen.add(klas);
+				}
+				Assertions.assertThat(docent.getKlassenLijst()).isEqualTo(klassen);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetKlassenLijstFalse(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				List<Klas> klassen = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Klas klas = new Klas(i);
+					klassen.add(klas);
+				}
+				Assertions.assertThat(docent.getKlassenLijst()).isNotEqualTo(klassen);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetVakkenLijstTrue(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				List<Vak> vakken = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Vak vak = new Vak("" + i);
+					docent.addVak(vak);
+					vakken.add(vak);
+				}
+				Assertions.assertThat(docent.getVakkenLijst()).isEqualTo(vakken);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetVakkenLijstFalse(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				List<Vak> vakken = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Vak vak = new Vak("" + i);
+					vakken.add(vak);
+				}
+				Assertions.assertThat(docent.getVakkenLijst()).isNotEqualTo(vakken);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetRoosterTrue(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				Rooster rooster = new Rooster(new Klas(nummer));
+				docent.setRooster(rooster);
+				Assertions.assertThat(docent.getRooster()).isEqualTo(rooster);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetRoosterFalse(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				Rooster rooster = new Rooster(new Klas(nummer));
+				Assertions.assertThat(docent.getRooster()).isNotEqualTo(rooster);
+			}
+		}
 		
+		@Nested
+		class testSet {
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testSetRoosterTrue(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				Rooster rooster = new Rooster(new Klas(nummer));
+				docent.setRooster(rooster);
+				Assertions.assertThat(docent.getRooster()).isEqualTo(rooster);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testSetRoosterFalse(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				Rooster rooster = new Rooster(new Klas(nummer));
+				Assertions.assertThat(docent.getRooster()).isNotEqualTo(rooster);
+			}
+		}
+		
+		@Nested
+		class testAdd {
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testAddKlasTrue(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				Klas klas = new Klas(nummer);
+				docent.addKlas(klas);
+				Assertions.assertThat(docent.getKlassenLijst()).contains(klas);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testAddKlasFalse(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				Klas klas = new Klas(nummer);
+				Assertions.assertThat(docent.getKlassenLijst()).doesNotContain(klas);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testAddVakTrue(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				Vak vak = new Vak("" + nummer);
+				docent.addVak(vak);
+				Assertions.assertThat(docent.getVakkenLijst()).contains(vak);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testAddVakFalse(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				Vak vak = new Vak("" + nummer);
+				Assertions.assertThat(docent.getVakkenLijst()).doesNotContain(vak);
+			}
+		}
+		
+		@Nested
+		class testRemove {
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testRemoveKlasTrue(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				Klas klas = new Klas(nummer);
+				docent.addKlas(klas);
+				Assertions.assertThat(docent.getKlassenLijst()).contains(klas);
+				docent.removeKlas(klas);
+				Assertions.assertThat(docent.getKlassenLijst()).doesNotContain(klas);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testRemoveKlasFalse(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				Klas klas = new Klas(nummer);
+				docent.addKlas(klas);
+				Assertions.assertThat(docent.getKlassenLijst()).contains(klas);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testRemoveVakTrue(int nummer) {
+				Docent docent = new Docent("test", "test", "test", "test", nummer);
+				Vak vak = new Vak("" + nummer);
+				docent.addVak(vak);
+				Assertions.assertThat(docent.getVakkenLijst()).contains(vak);
+			}
+		}
 	}
 	
 	@Nested
