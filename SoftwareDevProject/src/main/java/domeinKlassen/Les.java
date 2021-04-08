@@ -14,7 +14,6 @@ public class Les implements Serializable{
     private String eindTijd;
     private LocalDate dag;
     private Vak vak;
-    private Klas klas;
     private Rooster rooster;
     ArrayList<LesAbsentie> lesabsentieLijst = new ArrayList<>();
 
@@ -45,18 +44,10 @@ public class Les implements Serializable{
     public Vak getVak() {
         return this.vak;
     }
-
-    public Klas getKlas() {
-    	return this.klas;
-    }
     
     public Rooster getRooster() {
 		return this.rooster;
 	}
-    
-    public void setKlas(Klas klas) {
-    	this.klas = klas;
-    }
 
 	public void setRooster(Rooster rooster) {
 		this.rooster = rooster;
