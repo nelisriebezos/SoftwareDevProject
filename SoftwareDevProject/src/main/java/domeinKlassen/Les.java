@@ -15,7 +15,7 @@ public class Les implements Serializable{
     private LocalDate dag;
     private Vak vak;
     private Rooster rooster;
-    ArrayList<LesAbsentie> lesabsentieLijst = new ArrayList<>();
+    ArrayList<LesAbsentie> lesAbsentieLijst = new ArrayList<>();
 
     public Les(String naam, String beginTijd, String eindTijd, LocalDate dag, Vak vak) {
         this.naam = naam;
