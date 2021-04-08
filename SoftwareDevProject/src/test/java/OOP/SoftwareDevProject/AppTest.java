@@ -70,10 +70,10 @@ public class AppTest {
         d2.setRooster(dr2);
    assertEquals(4320832,docent.getDocentNummer());
    assertEquals(4321934,d2.getDocentNummer());
-   //assertEquals(docent,docent.equals(docent));
-   //assertEquals(true,d2.equals(d2));
-    assertEquals(SG14, kr1.getKlas());
-    assertEquals(SG15,kr2.getKlas());
+   assertEquals(docent,docent.equals(docent));
+   assertEquals(true,d2.equals(d2));
+   assertEquals(SG14, kr1.getKlas());
+   assertEquals(SG15,kr2.getKlas());
     
     
     }
@@ -88,9 +88,9 @@ public void Logincheck() {
 }
     @Test
     public void absentie() {
-    	Les les;
-    	Student stud;
-    	assertEquals(l,l.getStudent());
+    	//Les les;
+    	//Student stud;
+    	//assertEquals(l,l.getStudent());
     	
     
     	
