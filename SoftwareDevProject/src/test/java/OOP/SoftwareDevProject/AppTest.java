@@ -9,12 +9,15 @@ import org.junit.Test;
 
 import domeinKlassen.Docent;
 import domeinKlassen.Klas;
+import domeinKlassen.Les;
+import domeinKlassen.LesAbsentie;
 import domeinKlassen.Rooster;
 import domeinKlassen.SLB;
 import domeinKlassen.Student;
 
 
 public class AppTest {
+	
 	Student s1 = new Student("Gerard.Hartong@student.hu.nl", "sinterklaas364", "Gerard", "Harting", 1023045);
 	Student s2 = new Student("Jelle.vanBroek@student.hu.nl", "kerstman", "Jelle", "van Broek", 1034839);
 	Student s3 = new Student("Christa.Lange@student.hu.nl", "konijnenvoer", "Christa", "Lange", 1472890);
@@ -35,6 +38,7 @@ public class AppTest {
 	Rooster dr1 = new Rooster(d1);
 	Rooster dr2 = new Rooster(d2);
 	
+	LesAbsentie l = new LesAbsentie();
 	LoginController l1 = new LoginController();
 	
     /**
@@ -54,7 +58,7 @@ public class AppTest {
    assertEquals("Brian Honing",d2.toString());
    assertEquals("Berend Botje",slb1.toString());
    
-   assertEquals("Gerard.Hartong@student.hu.nl",s1.toString());
+ 
     	
     	
     	
@@ -82,7 +86,15 @@ public void Logincheck() {
 	
 	
 }
-
+    @Test
+    public void absentie() {
+    	Les les;
+    	Student stud;
+    	assertEquals(l,l.getStudent());
+    	
+    
+    	
+    }
 
 
 }
