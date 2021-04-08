@@ -2,10 +2,8 @@ package OOP.SoftwareDevProject;
 
 import UI.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import domeinKlassen.Docent;
 import domeinKlassen.Klas;
@@ -43,18 +41,18 @@ public class AppTest {
     @Test
     public void TestToString(){
     
-   assertEquals("Gerard Harting",s1.toString());
-   assertEquals("Jelle vanBroek",s2.toString());
-   assertEquals("Christa Lange",s3.toString());
-   assertEquals("Dante Jawel",s4.toString());
-   assertEquals("Sophie Dielemans",s5.toString());
-   assertEquals("Ingmar Boomstam",s6.toString());
+   Assertions.assertEquals("Gerard Harting",s1.toString());
+   Assertions.assertEquals("Jelle vanBroek",s2.toString());
+   Assertions.assertEquals("Christa Lange",s3.toString());
+   Assertions.assertEquals("Dante Jawel",s4.toString());
+   Assertions.assertEquals("Sophie Dielemans",s5.toString());
+   Assertions.assertEquals("Ingmar Boomstam",s6.toString());
    
-   assertEquals("Karin Haring",d1.toString());
-   assertEquals("Brian Honing",d2.toString());
-   assertEquals("Berend Botje",slb1.toString());
+   Assertions.assertEquals("Karin Haring",d1.toString());
+   Assertions.assertEquals("Brian Honing",d2.toString());
+   Assertions.assertEquals("Berend Botje",slb1.toString());
    
-   assertEquals("Gerard.Hartong@student.hu.nl",s1.toString());
+   Assertions.assertEquals("Gerard.Hartong@student.hu.nl",s1.toString());
     	
     	
     	
@@ -64,12 +62,12 @@ public class AppTest {
     	kr1.setKlas(SG14);
         kr2.setKlas(SG15);
         d2.setRooster(dr2);
-   assertEquals(4320832,docent.getDocentNummer());
-   assertEquals(4321934,d2.getDocentNummer());
-   //assertEquals(docent,docent.equals(docent));
-   //assertEquals(true,d2.equals(d2));
-    assertEquals(SG14, kr1.getKlas());
-    assertEquals(SG15,kr2.getKlas());
+        Assertions.assertEquals(4320832,docent.getDocentNummer());
+        Assertions.assertEquals(4321934,d2.getDocentNummer());
+   //Assertions.assertEquals(docent,docent.equals(docent));
+   //Assertions.assertEquals(true,d2.equals(d2));
+        Assertions.assertEquals(SG14, kr1.getKlas());
+        Assertions.assertEquals(SG15,kr2.getKlas());
     
     
     }
@@ -77,8 +75,8 @@ public class AppTest {
 public void Logincheck() {
     	
     	//zet expectation to false om te zien of je niet zomaar kunt inloggen
-    	assertEquals(false,l1.checkDocent());
-    	assertEquals(false,l1.checkStudent());
+    	Assertions.assertEquals(false,l1.checkDocent());
+    	Assertions.assertEquals(false,l1.checkStudent());
 	
 	
 }
