@@ -58,7 +58,7 @@ public class Manager implements Serializable {
 			FileOutputStream fileOut = new FileOutputStream(filePath);
 			ObjectOutputStream objectout = new ObjectOutputStream(fileOut);
 
-			objectout.writeObject(manager.getInstance());
+			objectout.writeObject(Manager.getInstance());
 			objectout.flush();
 			objectout.close();
 		} catch (Exception exception) {
