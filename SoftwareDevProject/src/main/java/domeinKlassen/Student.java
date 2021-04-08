@@ -48,7 +48,18 @@ public class Student extends Gebruiker implements Serializable {
     		return this.lesAbsentieLijst.size();
     	}
     }
+    
+    public int getGeselecteerdVakAbsentie(Vak vak) {
+    	int vakAbsentie = 0;
+    	for (LesAbsentie la : lesAbsentieLijst) {
+    		if (la.getLes().getVak().equals(vak)) {
+    			vakAbsentie += 1;
+    		}
+    	}
+    	return vakAbsentie;
+    }
  
+
     public SLB getSlb() {
 		return slb;
 	}
