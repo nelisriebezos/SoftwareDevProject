@@ -10,15 +10,15 @@ public class LesAbsentie implements Serializable{
 	private Les les;
 
 	public Student getStudent() {
-		return student;
+		return this.student;
+	}
+	
+	public Les getLes() {
+		return les;
 	}
 
 	public void setStudent(Student student) {
 		this.student = student;
-	}
-
-	public Les getLes() {
-		return les;
 	}
 
 	public void setLes(Les les) {

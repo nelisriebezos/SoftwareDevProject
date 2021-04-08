@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import controllers.Manager;
+import controllers.Utils;
 import domeinKlassen.Docent;
 import domeinKlassen.Student;
 
@@ -28,7 +29,7 @@ public class LoginController {
 				Button source = (Button) actionEvent.getSource();
 				Stage stage2 = (Stage) source.getScene().getWindow();
 				stage2.close();
-				FXMLLoader loader = new FXMLLoader(getClass().getResource(bestandsNaam));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource(this.bestandsNaam));
 				Parent root = null;
 				try {
 					root = loader.load();
@@ -42,16 +43,16 @@ public class LoginController {
 				newStage.showAndWait();
 			} 
 		else {
-				misluktLabel.setText("De combinatie van wachtwoord en gebruikersnaam klopt niet.");
+			this.misluktLabel.setText("De combinatie van wachtwoord en gebruikersnaam klopt niet.");
 			}
 		}
 	
 	public boolean checkDocent() {
 		for (Docent d : Manager.getInstance().getDocentenLijst()) {
-			if (WachtwoordPasswordField.getText().equals(d.getWachtwoord()) 
+			if (Utils.checkPassword(d, WachtwoordPasswordField.getText()) 
 					&& GebruikersnaamTextField.getText().equals(String.valueOf(d.getDocentNummer()))) {
 				Manager.getInstance().setIngelogdDocent(d);
-				bestandsNaam = "Home2.fxml";
+				this.bestandsNaam = "Home2.fxml";
 				return true;
 			}
 		}
@@ -60,10 +61,10 @@ public class LoginController {
 	
 	public boolean checkStudent() {
 		for (Student s : Manager.getInstance().getStudentenLijst()) {
-			if (WachtwoordPasswordField.getText().equals(s.getWachtwoord())
+			if (Utils.checkPassword(s, WachtwoordPasswordField.getText())
 					&& GebruikersnaamTextField.getText().equals(String.valueOf( s.getLeerlingNummer()))) {
 				Manager.getInstance().setIngelogdStudent(s);
-				bestandsNaam = "Home.fxml";
+				this.bestandsNaam = "Home.fxml";
 				return true;
 			}
 		}

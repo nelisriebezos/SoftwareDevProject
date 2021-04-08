@@ -60,10 +60,10 @@ public class ObjectenAanmaken {
 		Rooster dr1 = new Rooster(d1);
 		Rooster dr2 = new Rooster(d2);
 		
-		kr1.voegLesToe(l1a);
-		kr1.voegLesToe(l2a);
-		kr1.voegLesToe(l3a);
-		kr1.voegLesToe(l4a);
+		kr1.addLes(l1a);
+		kr1.addLes(l2a);
+		kr1.addLes(l3a);
+		kr1.addLes(l4a);
 		
 		l1a.setRooster(kr1);
 		l2a.setRooster(kr1);
@@ -76,20 +76,20 @@ public class ObjectenAanmaken {
 		l4b.setRooster(kr2);
 		
 		
-		kr2.voegLesToe(l1b);
-		kr2.voegLesToe(l2b);
-		kr2.voegLesToe(l3b);
-		kr2.voegLesToe(l4b);
+		kr2.addLes(l1b);
+		kr2.addLes(l2b);
+		kr2.addLes(l3b);
+		kr2.addLes(l4b);
 		
-		dr1.voegLesToe(l3a);
-		dr1.voegLesToe(l4a);
-		dr1.voegLesToe(l3b);
-		dr1.voegLesToe(l4b);
+		dr1.addLes(l3a);
+		dr1.addLes(l4a);
+		dr1.addLes(l3b);
+		dr1.addLes(l4b);
 		
-		dr2.voegLesToe(l1a);
-		dr2.voegLesToe(l2a);
-		dr2.voegLesToe(l1b);
-		dr2.voegLesToe(l2b);
+		dr2.addLes(l1a);
+		dr2.addLes(l2a);
+		dr2.addLes(l1b);
+		dr2.addLes(l2b);
 		
 		OOP.addDocent(d1);
 		OOP.addKlas(SG14);
@@ -104,7 +104,6 @@ public class ObjectenAanmaken {
 		SG14.addStudent(s3);
 		SG14.addDocent(d1);
 		SG14.addDocent(d2);
-		SG14.setSlb(slb1);
 		SG14.addVak(OOP);
 		SG14.addVak(OOAD);
 		SG14.setRooster(kr1);
@@ -114,7 +113,6 @@ public class ObjectenAanmaken {
 		SG15.addStudent(s6);
 		SG15.addDocent(d1);
 		SG15.addDocent(d2);
-		SG15.setSlb(slb1);
 		SG15.addVak(OOP);
 		SG15.addVak(OOAD);
 		SG15.setRooster(kr2);
@@ -140,23 +138,23 @@ public class ObjectenAanmaken {
 
 		
 		Manager manager = Manager.getInstance();
-		manager.voegVakToe(OOP);
-		manager.voegVakToe(OOAD);
-		manager.voegKlasToe(SG14);
-		manager.voegKlasToe(SG15);
-		manager.voegStudentToe(s1);
-		manager.voegStudentToe(s2);
-		manager.voegStudentToe(s3);
-		manager.voegStudentToe(s4);
-		manager.voegStudentToe(s5);
-		manager.voegStudentToe(s6);
-		manager.voegDocentToe(d1);
-		manager.voegDocentToe(d2);
-		manager.voegSLBToe(slb1);
-		manager.voegRoosterToe(kr1);
-		manager.voegRoosterToe(kr2);
-		manager.voegRoosterToe(dr1);
-		manager.voegRoosterToe(dr2);
+		manager.addVak(OOP);
+		manager.addVak(OOAD);
+		manager.addKlas(SG14);
+		manager.addKlas(SG15);
+		manager.addStudent(s1);
+		manager.addStudent(s2);
+		manager.addStudent(s3);
+		manager.addStudent(s4);
+		manager.addStudent(s5);
+		manager.addStudent(s6);
+		manager.addDocent(d1);
+		manager.addDocent(d2);
+		manager.addSLB(slb1);
+		manager.addRooster(kr1);
+		manager.addRooster(kr2);
+		manager.addRooster(dr1);
+		manager.addRooster(dr2);
 
 		manager.schrijfWeg();
 	}

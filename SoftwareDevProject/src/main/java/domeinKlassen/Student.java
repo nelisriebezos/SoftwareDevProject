@@ -13,7 +13,7 @@ public class Student extends Gebruiker implements Serializable {
 
     private int leerlingNummer;
     private Klas klas;
-    private boolean isWelNietZiek;
+    private boolean isWelNietZiek = false;
     ArrayList<LesAbsentie> lesAbsentieLijst = new ArrayList<>();
 
 
@@ -26,9 +26,9 @@ public class Student extends Gebruiker implements Serializable {
     	LesAbsentie l = new LesAbsentie();
     	l.setLes(les);
     	l.setStudent(stud);
-    	lesAbsentieLijst.add(l);
+    	this.lesAbsentieLijst.add(l);
     	
-    	Manager.getInstance().voeglesAbsentieToe(l);;
+    	Manager.getInstance().addlesAbsentie(l);;
     }
     
     public boolean getAbsent(Les les) {
@@ -44,7 +44,7 @@ public class Student extends Gebruiker implements Serializable {
     	if (lesAbsentieLijst == null) {
     		return 0;
     	}else {
-    		return lesAbsentieLijst.size();
+    		return this.lesAbsentieLijst.size();
     	}
     }
  
@@ -64,13 +64,13 @@ public class Student extends Gebruiker implements Serializable {
     public boolean getIsWelNietZiek() {
         return this.isWelNietZiek;
     }
+    
+    public List<Vak> getVakken() {
+        return Collections.unmodifiableList(getKlas().getVakkenLijst());
+    }
 
     public void setWelNietZiek(boolean welNietZiek) {
         this.isWelNietZiek = welNietZiek;
-    }
-
-    public List<Vak> getVakken() {
-        return Collections.unmodifiableList(getKlas().getVakkenLijst());
     }
 
     @Override

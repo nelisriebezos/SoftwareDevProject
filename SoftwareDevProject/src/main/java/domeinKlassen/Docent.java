@@ -21,19 +21,7 @@ public class Docent extends Gebruiker implements Serializable {
         
         
     }
-
-    public int getDocentNummer() {
-        return this.docentNummer;
-    }
-
-    public List<Klas> getKlassenLijst() {
-        return Collections.unmodifiableList(klassenLijst);
-    }
-
-    public List<Vak> getVakkenLijst() {
-        return Collections.unmodifiableList(vakkenLijst);
-    }
-
+    
     public void addKlas(Klas klas) {
         this.klassenLijst.add(klas);
     }
@@ -49,9 +37,21 @@ public class Docent extends Gebruiker implements Serializable {
     public void removeVak(Vak vak) {
         this.vakkenLijst.remove(vak);
     }
+
+    public int getDocentNummer() {
+        return this.docentNummer;
+    }
+
+    public List<Klas> getKlassenLijst() {
+        return Collections.unmodifiableList(this.klassenLijst);
+    }
+
+    public List<Vak> getVakkenLijst() {
+        return Collections.unmodifiableList(this.vakkenLijst);
+    }
     
     public Rooster getRooster() {
-		return rooster;
+		return this.rooster;
 	}
 
 	public void setRooster(Rooster rooster) {

@@ -11,7 +11,6 @@ public class Klas implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int klasNummer;
-    private SLB slb;
     private Rooster rooster;
     private List<Student> studentenLijst = new ArrayList<>();
     private List<Docent> docentenLijst = new ArrayList<>();
@@ -20,31 +19,7 @@ public class Klas implements Serializable {
     public Klas(int klasNummer) {
         this.klasNummer = klasNummer;
     }
-
-    public int getKlasNummer() {
-        return this.klasNummer;
-    }
-
-    public SLB getSlb() {
-        return this.slb;
-    }
-
-    public List<Student> getStudentenLijst() {
-        return Collections.unmodifiableList(studentenLijst);
-    }
-
-    public List<Docent> getDocentenLijst() {
-        return Collections.unmodifiableList(docentenLijst);
-    }
-
-    public List<Vak> getVakkenLijst() {
-        return Collections.unmodifiableList(vakkenLijst);
-    }
-
-    public void setSlb(SLB slb) {
-        this.slb = slb;
-    }
-
+    
     public void addStudent(Student student) {
         this.studentenLijst.add(student);
     }
@@ -68,6 +43,22 @@ public class Klas implements Serializable {
     public void removeVak(Vak vak) {
         this.vakkenLijst.remove(vak);
     }
+
+    public int getKlasNummer() {
+        return this.klasNummer;
+    }
+
+    public List<Student> getStudentenLijst() {
+        return Collections.unmodifiableList(this.studentenLijst);
+    }
+
+    public List<Docent> getDocentenLijst() {
+        return Collections.unmodifiableList(this.docentenLijst);
+    }
+
+    public List<Vak> getVakkenLijst() {
+        return Collections.unmodifiableList(this.vakkenLijst);
+    }
     
     public Rooster getRooster() {
 		return rooster;
@@ -82,7 +73,7 @@ public class Klas implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Klas)) return false;
         Klas klas = (Klas) o;
-        return getKlasNummer() == klas.getKlasNummer() && Objects.equals(getSlb(), klas.getSlb()) &&
+        return getKlasNummer() == klas.getKlasNummer() &&
                 Objects.equals(getStudentenLijst(), klas.getStudentenLijst()) && Objects.equals(getDocentenLijst(),
                 klas.getDocentenLijst()) && Objects.equals(getVakkenLijst(), klas.getVakkenLijst());
     }

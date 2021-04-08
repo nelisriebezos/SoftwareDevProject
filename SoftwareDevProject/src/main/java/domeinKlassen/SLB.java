@@ -14,17 +14,17 @@ public class SLB extends Gebruiker implements Serializable {
     public SLB(String emailAdres, String wachtwoord, String voorNaam, String achterNaam) {
         super(emailAdres, wachtwoord, voorNaam, achterNaam);
     }
-
-    public List<Student> getStudentenLijst() {
-        return Collections.unmodifiableList(studentenLijst);
-    }
-
+    
     public boolean addStudent(Student student) {
         if (!studentenLijst.contains(student)) {
-            studentenLijst.add(student);
+        	this.studentenLijst.add(student);
             return true;
         }
         return false;
+    }
+
+    public List<Student> getStudentenLijst() {
+        return Collections.unmodifiableList(this.studentenLijst);
     }
 
     public void setStudentenLijst(List<Student> studentenLijst) {

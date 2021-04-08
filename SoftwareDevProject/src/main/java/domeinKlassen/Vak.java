@@ -18,23 +18,7 @@ public class Vak implements Serializable {
     public Vak(String naam) {
         this.naam = naam;
     }
-
-    public String getNaam() {
-        return this.naam;
-    }
-
-    public List<Docent> getDocentenLijst() {
-        return Collections.unmodifiableList(docentenLijst);
-    }
-
-    public List<Klas> getKlassenLijst() {
-        return Collections.unmodifiableList(klassenLijst);
-    }
-
-    public List<Les> getLessenLijst() {
-        return Collections.unmodifiableList(lessenLijst);
-    }
-
+    
     public void addDocent(Docent docent) {
         this.docentenLijst.add(docent);
     }
@@ -57,6 +41,22 @@ public class Vak implements Serializable {
 
     public void removeLes(Les les) {
         this.lessenLijst.remove(les);
+    }
+
+    public String getNaam() {
+        return this.naam;
+    }
+
+    public List<Docent> getDocentenLijst() {
+        return Collections.unmodifiableList(this.docentenLijst);
+    }
+
+    public List<Klas> getKlassenLijst() {
+        return Collections.unmodifiableList(this.klassenLijst);
+    }
+
+    public List<Les> getLessenLijst() {
+        return Collections.unmodifiableList(this.lessenLijst);
     }
 
     @Override

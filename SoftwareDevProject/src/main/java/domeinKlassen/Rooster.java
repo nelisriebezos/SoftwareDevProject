@@ -20,28 +20,28 @@ public class Rooster implements Serializable{
 		}
 	}
 	
-	public void voegLesToe(Les l) {
+	public void addLes(Les l) {
 		this.lessenLijst.add(l);
 	}
 
 	public Docent getDocent() {
-		return docent;
+		return this.docent;
+	}
+	
+	public Klas getKlas() {
+		return this.klas;
+	}
+	
+	public ArrayList<Les> getLessenLijst() {
+		return this.lessenLijst;
 	}
 
 	public void setDocent(Docent docent) {
 		this.docent = docent;
 	}
 
-	public Klas getKlas() {
-		return klas;
-	}
-
 	public void setKlas(Klas klas) {
 		this.klas = klas;
-	}
-
-	public ArrayList<Les> getLessenLijst() {
-		return lessenLijst;
 	}
 
 	public void setLessenLijst(ArrayList<Les> lessenLijst) {

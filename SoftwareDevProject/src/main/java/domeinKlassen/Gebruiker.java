@@ -3,6 +3,8 @@ package domeinKlassen;
 import java.io.Serializable;
 import java.util.Objects;
 
+import controllers.Utils;
+
 public class Gebruiker implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -14,7 +16,7 @@ public class Gebruiker implements Serializable {
 
     public Gebruiker(String emailAdres, String wachtwoord, String voorNaam, String achterNaam) {
         this.emailAdres = emailAdres;
-        this.wachtwoord = wachtwoord;
+        this.wachtwoord = Utils.hashPassword(wachtwoord);
         this.voorNaam = voorNaam;
         this.achterNaam = achterNaam;
     }

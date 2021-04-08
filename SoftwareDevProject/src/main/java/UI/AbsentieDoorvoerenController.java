@@ -20,7 +20,7 @@ public class AbsentieDoorvoerenController {
 	public TextField eindTijd;
 	
     public void initialize() {	
-    	ingelogdPersoon.setText(Manager.getInstance().getIngelogdStudent().getVoorNaam());
+    	this.ingelogdPersoon.setText(Manager.getInstance().getIngelogdStudent().getVoorNaam());
     }
 
     public void Home(ActionEvent actionEvent) {
@@ -38,11 +38,17 @@ public class AbsentieDoorvoerenController {
     }
     
     public void einddatumDatePicker(ActionEvent actionEvent) throws Exception{
-    	try{if(beginDatum.getValue().equals(null)) {misluktLabel.setText("Begindatum is leeg.");}}
-    	catch(RuntimeException e) {misluktLabel.setText("Begindatum is leeg. Vul de begindatum in en dan opnieuw de einddatum."); System.out.println("begindatum is leeg. Vul de begindatum in en dan opnieuw de einddatum.");}
-    	if(beginDatum.getValue().isAfter(eindDatum.getValue())) {
-    		misluktLabel.setText("Voer een einddatum in die verder is dan de begindatum.");
+    	try {
+    		if(beginDatum.getValue().equals(null)) {
+    			this.misluktLabel.setText("Begindatum is leeg.");
+    		}
+    	} catch(RuntimeException e) {
+    		this.misluktLabel.setText("Begindatum is leeg. Vul de begindatum in en dan opnieuw de einddatum.");
     	}
-    	
+    	if(beginDatum.getValue().isAfter(eindDatum.getValue())) {
+    		this.misluktLabel.setText("Voer een einddatum in die verder is dan de begindatum.");
+    	} else {
+    		this.misluktLabel.setText(null);
+    	}
     }
 }
