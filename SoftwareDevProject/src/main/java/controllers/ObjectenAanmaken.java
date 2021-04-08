@@ -12,12 +12,14 @@ import domeinKlassen.Rooster;
 import domeinKlassen.SLB;
 import domeinKlassen.Student;
 import domeinKlassen.Vak;
+import UI.*;
 
 public class ObjectenAanmaken {
 	public static void main(String[] args) throws FileNotFoundException {
 		List<Student> studentenLijst14 = new ArrayList<>();
 		List<Student> studentenLijst15 = new ArrayList<>();
-
+		LoginController l1 = new LoginController();
+		
 		Vak OOP = new Vak("OOP");
 		Vak OOAD = new Vak("OOAD");
 

@@ -18,6 +18,8 @@ public class Docent extends Gebruiker implements Serializable {
     public Docent(String emailAdres, String wachtwoord, String voorNaam, String achterNaam, int docentNummer) {
         super(emailAdres, wachtwoord, voorNaam, achterNaam);
         this.docentNummer = docentNummer;
+        
+        
     }
 
     public int getDocentNummer() {
