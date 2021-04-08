@@ -1,4 +1,4 @@
-package services;
+package controllers;
 
 import domeinKlassen.Gebruiker;
 import org.apache.commons.codec.binary.Hex;

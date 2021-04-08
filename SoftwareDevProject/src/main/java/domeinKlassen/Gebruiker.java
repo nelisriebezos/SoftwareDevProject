@@ -3,7 +3,7 @@ package domeinKlassen;
 import java.io.Serializable;
 import java.util.Objects;
 
-import services.Utils;
+import controllers.Utils;
 
 public class Gebruiker implements Serializable {
 

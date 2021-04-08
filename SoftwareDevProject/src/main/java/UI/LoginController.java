@@ -13,9 +13,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import controllers.Manager;
+import controllers.Utils;
 import domeinKlassen.Docent;
 import domeinKlassen.Student;
-import services.Utils;
 
 public class LoginController {
 
