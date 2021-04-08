@@ -15,6 +15,7 @@ import java.io.IOException;
 import controllers.Manager;
 import domeinKlassen.Docent;
 import domeinKlassen.Student;
+import services.Utils;
 
 public class LoginController {
 
@@ -48,7 +49,7 @@ public class LoginController {
 	
 	public boolean checkDocent() {
 		for (Docent d : Manager.getInstance().getDocentenLijst()) {
-			if (WachtwoordPasswordField.getText().equals(d.getWachtwoord()) 
+			if (Utils.checkPassword(d, WachtwoordPasswordField.getText()) 
 					&& GebruikersnaamTextField.getText().equals(String.valueOf(d.getDocentNummer()))) {
 				Manager.getInstance().setIngelogdDocent(d);
 				this.bestandsNaam = "Home2.fxml";
@@ -60,7 +61,7 @@ public class LoginController {
 	
 	public boolean checkStudent() {
 		for (Student s : Manager.getInstance().getStudentenLijst()) {
-			if (WachtwoordPasswordField.getText().equals(s.getWachtwoord())
+			if (Utils.checkPassword(s, WachtwoordPasswordField.getText())
 					&& GebruikersnaamTextField.getText().equals(String.valueOf( s.getLeerlingNummer()))) {
 				Manager.getInstance().setIngelogdStudent(s);
 				this.bestandsNaam = "Home.fxml";
