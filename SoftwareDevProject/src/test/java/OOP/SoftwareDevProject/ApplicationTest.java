@@ -265,22 +265,308 @@ public class ApplicationTest {
 	class testKlas {
 		@Nested
 		class testGet {
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetKlasNummerTrue(int nummer) {
+				Klas klas = new Klas(nummer);
+				Assertions.assertThat(klas.getKlasNummer()).isEqualTo(nummer);
+			}
 			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetKlasNummerFalse(int nummer) {
+				Klas klas = new Klas(nummer);
+				Assertions.assertThat(klas.getKlasNummer()).isNotEqualTo(nummer + 1);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testGetStudentenLijstTrue(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				List<Student> studenten = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Student student = new Student(email, password, voornaam, achternaam, nummer + i);
+					klas.addStudent(student);
+					studenten.add(student);
+				}
+				Assertions.assertThat(klas.getStudentenLijst()).isEqualTo(studenten);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testGetStudentenLijstFalse(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				List<Student> studenten = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Student student = new Student(email, password, voornaam, achternaam, nummer + i);
+					studenten.add(student);
+				}
+				Assertions.assertThat(klas.getStudentenLijst()).isNotEqualTo(studenten);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testGetDocentenLijstTrue(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				List<Docent> docenten = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Docent docent = new Docent(email, password, voornaam, achternaam, nummer + i);
+					klas.addDocent(docent);
+					docenten.add(docent);
+				}
+				Assertions.assertThat(klas.getDocentenLijst()).isEqualTo(docenten);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testGetDocentenLijstFalse(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				List<Docent> docenten = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Docent docent = new Docent(email, password, voornaam, achternaam, nummer + i);
+					docenten.add(docent);
+				}
+				Assertions.assertThat(klas.getDocentenLijst()).isNotEqualTo(docenten);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetVakkenLijstTrue(int nummer) {
+				Klas klas = new Klas(nummer);
+				List<Vak> vakken = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Vak vak = new Vak("" + i);
+					klas.addVak(vak);
+					vakken.add(vak);
+				}
+				Assertions.assertThat(klas.getVakkenLijst()).isEqualTo(vakken);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetVakkenLijstFalse(int nummer) {
+				Klas klas = new Klas(nummer);
+				List<Vak> vakken = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Vak vak = new Vak("" + i);
+					vakken.add(vak);
+				}
+				Assertions.assertThat(klas.getVakkenLijst()).isNotEqualTo(vakken);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetRoosterTrue(int nummer) {
+				Klas klas = new Klas(nummer);
+				Rooster rooster = new Rooster(klas);
+				klas.setRooster(rooster);
+				Assertions.assertThat(klas.getRooster()).isEqualTo(rooster);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testGetRoosterFalse(int nummer) {
+				Klas klas = new Klas(nummer);
+				Rooster rooster = new Rooster(klas);
+				Assertions.assertThat(klas.getRooster()).isNotEqualTo(rooster);
+			}
 		}
 		
 		@Nested
 		class testSet {
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testSetRoosterTrue(int nummer) {
+				Klas klas = new Klas(nummer);
+				Rooster rooster = new Rooster(klas);
+				klas.setRooster(rooster);
+				Assertions.assertThat(klas.getRooster()).isEqualTo(rooster);
+			}
 			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testSetRoosterFalse(int nummer) {
+				Klas klas = new Klas(nummer);
+				Rooster rooster = new Rooster(klas);
+				Assertions.assertThat(klas.getRooster()).isNotEqualTo(rooster);
+			}
 		}
 		
 		@Nested
 		class testAdd {
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testAddStudentTrue(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				Student student = new Student(email, password, voornaam, achternaam, nummer);
+				klas.addStudent(student);
+				Assertions.assertThat(klas.getStudentenLijst()).contains(student);
+			}
 			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testAddStudentFalse(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				Student student = new Student(email, password, voornaam, achternaam, nummer);
+				Assertions.assertThat(klas.getStudentenLijst()).doesNotContain(student);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testAddDocentTrue(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				Docent docent = new Docent(email, password, voornaam, achternaam, nummer);
+				klas.addDocent(docent);
+				Assertions.assertThat(klas.getDocentenLijst()).contains(docent);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testAddDocentFalse(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				Docent docent = new Docent(email, password, voornaam, achternaam, nummer);
+				Assertions.assertThat(klas.getDocentenLijst()).doesNotContain(docent);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testAddVakTrue(int nummer) {
+				Klas klas = new Klas(nummer);
+				Vak vak = new Vak("" + nummer);
+				klas.addVak(vak);
+				Assertions.assertThat(klas.getVakkenLijst()).contains(vak);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testAddVakFalse(int nummer) {
+				Klas klas = new Klas(nummer);
+				Vak vak = new Vak("" + nummer);
+				Assertions.assertThat(klas.getVakkenLijst()).doesNotContain(vak);
+			}
 		}
 		
 		@Nested
 		class testRemove {
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testRemoveStudentTrue(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				Student student = new Student(email, password, voornaam, achternaam, nummer);
+				klas.addStudent(student);
+				Assertions.assertThat(klas.getStudentenLijst()).contains(student);
+				klas.removeStudent(student);
+				Assertions.assertThat(klas.getStudentenLijst()).doesNotContain(student);
+			}
 			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testRemoveStudentFalse(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				Student student = new Student(email, password, voornaam, achternaam, nummer);
+				klas.addStudent(student);
+				Assertions.assertThat(klas.getStudentenLijst()).contains(student);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testRemoveDocentTrue(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				Docent docent = new Docent(email, password, voornaam, achternaam, nummer);
+				klas.addDocent(docent);
+				Assertions.assertThat(klas.getDocentenLijst()).contains(docent);
+				klas.removeDocent(docent);
+				Assertions.assertThat(klas.getDocentenLijst()).doesNotContain(docent);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,test,test,test,1",
+				"test1,test1,test1,test1,2",
+				"test2,test2,test2,test2,3",
+				"test3,test3,test3,test3,4",
+			})
+			public void testRemoveDocentFalse(String email, String password, String voornaam, String achternaam, int nummer) {
+				Klas klas = new Klas(nummer);
+				Docent docent = new Docent(email, password, voornaam, achternaam, nummer);
+				klas.addDocent(docent);
+				Assertions.assertThat(klas.getDocentenLijst()).contains(docent);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testRemoveVakTrue(int nummer) {
+				Klas klas = new Klas(nummer);
+				Vak vak = new Vak("" + nummer);
+				klas.addVak(vak);
+				Assertions.assertThat(klas.getVakkenLijst()).contains(vak);
+				klas.removeVak(vak);
+				Assertions.assertThat(klas.getVakkenLijst()).doesNotContain(vak);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(ints = {1, 2, 3, 4})
+			public void testRemoveVakFalse(int nummer) {
+				Klas klas = new Klas(nummer);
+				Vak vak = new Vak("" + nummer);
+				klas.addVak(vak);
+				Assertions.assertThat(klas.getVakkenLijst()).contains(vak);
+			}
 		}
 	}
 	
@@ -681,7 +967,6 @@ public class ApplicationTest {
 			})
 			public void testAddStudentenLijstTrue(String email, String password, String voornaam, String achternaam, int studentNummer) {
 				SLB slb = new SLB(email, password, voornaam, achternaam);
-				List<Student> studenten = new ArrayList<>();
 				Student student = new Student(email, password, voornaam, achternaam, studentNummer);
 				slb.addStudent(student);
 				Assertions.assertThat(slb.getStudentenLijst()).contains(student);
@@ -696,7 +981,6 @@ public class ApplicationTest {
 			})
 			public void testAddStudentenLijstFalse(String email, String password, String voornaam, String achternaam, int studentNummer) {
 				SLB slb = new SLB(email, password, voornaam, achternaam);
-				List<Student> studenten = new ArrayList<>();
 				Student student = new Student(email, password, voornaam, achternaam, studentNummer);
 				Assertions.assertThat(slb.getStudentenLijst()).doesNotContain(student);
 			}
@@ -728,29 +1012,6 @@ public class ApplicationTest {
 	
 	@Nested
 	class testVak {
-		@Nested
-		class testGet {
-
-		}
-		
-		@Nested
-		class testSet {
-			
-		}
-		
-		@Nested
-		class testAdd {
-			
-		}
-		
-		@Nested
-		class testRemove {
-			
-		}
-	}
-	
-	@Nested
-	class testManager {
 		@Nested
 		class testGet {
 
