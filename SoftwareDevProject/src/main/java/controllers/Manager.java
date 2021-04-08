@@ -20,6 +20,8 @@ import domeinKlassen.Vak;
 
 public class Manager implements Serializable {
 	
+	private static final long serialVersionUID = -6613706280562535180L;
+	
 	private static final String filePath = "objecten.txt";
 	
 	private Student ingelogdStudent;
