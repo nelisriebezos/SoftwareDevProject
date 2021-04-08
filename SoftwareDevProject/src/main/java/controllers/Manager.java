@@ -123,95 +123,92 @@ public class Manager implements Serializable {
 	public Student getIngelogdStudent() {
 		return ingelogdStudent;
 	}
+	
+	public Docent getIngelogdDocent() {
+		return ingelogdDocent;
+	}
+	
+	public Object getIngelogdPersoon() {
+		return ingelogdPersoon;
+	}
+	
+	public ArrayList<Student> getStudentenLijst() {
+		return studentenLijst;
+	}
+	
+	public ArrayList<Docent> getDocentenLijst() {
+		return docentenLijst;
+	}
+	
+	public ArrayList<Vak> getVakkenLijst() {
+		return vakkenLijst;
+	}
+	
+	public ArrayList<Klas> getKlassenLijst() {
+		return klassenLijst;
+	}
+	
+	public ArrayList<Les> getLessenLijst() {
+		return lessenLijst;
+	}
+	
+	public ArrayList<LesAbsentie> getLesAbsentieLijst() {
+		return lesAbsentieLijst;
+	}
+	
+	public ArrayList<Rooster> getRoosterLijst() {
+		return roosterLijst;
+	}
+	
+	public ArrayList<SLB> getSlbLijst() {
+		return slbLijst;
+	}
+	
+	public static String getFilepath() {
+		return filePath;
+	}
 
 	public void setIngelogdStudent(Student ingelogdStudent) {
 		this.ingelogdStudent = ingelogdStudent;
-	}
-
-	public Docent getIngelogdDocent() {
-		return ingelogdDocent;
 	}
 
 	public void setIngelogdDocent(Docent ingelogdDocent) {
 		this.ingelogdDocent = ingelogdDocent;
 	}
 
-	public Object getIngelogdPersoon() {
-		return ingelogdPersoon;
-	}
-
 	public void setIngelogdPersoon(Object ingelogdPersoon) {
 		this.ingelogdPersoon = ingelogdPersoon;
-	}
-
-	public ArrayList<Student> getStudentenLijst() {
-		return studentenLijst;
 	}
 
 	public void setStudentenLijst(ArrayList<Student> studentenLijst) {
 		this.studentenLijst = studentenLijst;
 	}
 
-	public ArrayList<Docent> getDocentenLijst() {
-		return docentenLijst;
-	}
-
 	public void setDocentenLijst(ArrayList<Docent> docentenLijst) {
 		this.docentenLijst = docentenLijst;
-	}
-
-	public ArrayList<Vak> getVakkenLijst() {
-		return vakkenLijst;
 	}
 
 	public void setVakkenLijst(ArrayList<Vak> vakkenLijst) {
 		this.vakkenLijst = vakkenLijst;
 	}
 
-	public ArrayList<Klas> getKlassenLijst() {
-		return klassenLijst;
-	}
-
 	public void setKlassenLijst(ArrayList<Klas> klassenLijst) {
 		this.klassenLijst = klassenLijst;
-	}
-
-	public ArrayList<Les> getLessenLijst() {
-		return lessenLijst;
 	}
 
 	public void setLessenLijst(ArrayList<Les> lessenLijst) {
 		this.lessenLijst = lessenLijst;
 	}
 
-	public ArrayList<LesAbsentie> getLesAbsentieLijst() {
-		return lesAbsentieLijst;
-	}
-
 	public void setLesAbsentieLijst(ArrayList<LesAbsentie> lesAbsentieLijst) {
 		this.lesAbsentieLijst = lesAbsentieLijst;
-	}
-
-	public ArrayList<Rooster> getRoosterLijst() {
-		return roosterLijst;
 	}
 
 	public void setRoosterLijst(ArrayList<Rooster> roosterLijst) {
 		this.roosterLijst = roosterLijst;
 	}
 
-	public ArrayList<SLB> getSlbLijst() {
-		return slbLijst;
-	}
-
 	public void setSlbLijst(ArrayList<SLB> slbLijst) {
 		this.slbLijst = slbLijst;
 	}
-	
-	public static String getFilepath() {
-		return filePath;
-	}
-	
-	
-
 }

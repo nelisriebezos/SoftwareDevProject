@@ -50,13 +50,13 @@ public class Les implements Serializable{
     	return this.klas;
     }
     
-    public void setKlas(Klas klas) {
-    	this.klas = klas;
-    }
-
     public Rooster getRooster() {
 		return rooster;
 	}
+    
+    public void setKlas(Klas klas) {
+    	this.klas = klas;
+    }
 
 	public void setRooster(Rooster rooster) {
 		this.rooster = rooster;

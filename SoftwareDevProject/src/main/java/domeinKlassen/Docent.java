@@ -19,19 +19,7 @@ public class Docent extends Gebruiker implements Serializable {
         super(emailAdres, wachtwoord, voorNaam, achterNaam);
         this.docentNummer = docentNummer;
     }
-
-    public int getDocentNummer() {
-        return this.docentNummer;
-    }
-
-    public List<Klas> getKlassenLijst() {
-        return Collections.unmodifiableList(klassenLijst);
-    }
-
-    public List<Vak> getVakkenLijst() {
-        return Collections.unmodifiableList(vakkenLijst);
-    }
-
+    
     public void addKlas(Klas klas) {
         this.klassenLijst.add(klas);
     }
@@ -46,6 +34,18 @@ public class Docent extends Gebruiker implements Serializable {
 
     public void removeVak(Vak vak) {
         this.vakkenLijst.remove(vak);
+    }
+
+    public int getDocentNummer() {
+        return this.docentNummer;
+    }
+
+    public List<Klas> getKlassenLijst() {
+        return Collections.unmodifiableList(klassenLijst);
+    }
+
+    public List<Vak> getVakkenLijst() {
+        return Collections.unmodifiableList(vakkenLijst);
     }
     
     public Rooster getRooster() {

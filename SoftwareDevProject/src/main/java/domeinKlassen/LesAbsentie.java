@@ -12,13 +12,13 @@ public class LesAbsentie implements Serializable{
 	public Student getStudent() {
 		return student;
 	}
+	
+	public Les getLes() {
+		return les;
+	}
 
 	public void setStudent(Student student) {
 		this.student = student;
-	}
-
-	public Les getLes() {
-		return les;
 	}
 
 	public void setLes(Les les) {

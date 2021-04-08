@@ -19,23 +19,7 @@ public class Klas implements Serializable {
     public Klas(int klasNummer) {
         this.klasNummer = klasNummer;
     }
-
-    public int getKlasNummer() {
-        return this.klasNummer;
-    }
-
-    public List<Student> getStudentenLijst() {
-        return Collections.unmodifiableList(studentenLijst);
-    }
-
-    public List<Docent> getDocentenLijst() {
-        return Collections.unmodifiableList(docentenLijst);
-    }
-
-    public List<Vak> getVakkenLijst() {
-        return Collections.unmodifiableList(vakkenLijst);
-    }
-
+    
     public void addStudent(Student student) {
         this.studentenLijst.add(student);
     }
@@ -58,6 +42,22 @@ public class Klas implements Serializable {
 
     public void removeVak(Vak vak) {
         this.vakkenLijst.remove(vak);
+    }
+
+    public int getKlasNummer() {
+        return this.klasNummer;
+    }
+
+    public List<Student> getStudentenLijst() {
+        return Collections.unmodifiableList(studentenLijst);
+    }
+
+    public List<Docent> getDocentenLijst() {
+        return Collections.unmodifiableList(docentenLijst);
+    }
+
+    public List<Vak> getVakkenLijst() {
+        return Collections.unmodifiableList(vakkenLijst);
     }
     
     public Rooster getRooster() {

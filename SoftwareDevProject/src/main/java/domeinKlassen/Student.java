@@ -64,13 +64,13 @@ public class Student extends Gebruiker implements Serializable {
     public boolean getIsWelNietZiek() {
         return this.isWelNietZiek;
     }
+    
+    public List<Vak> getVakken() {
+        return Collections.unmodifiableList(getKlas().getVakkenLijst());
+    }
 
     public void setWelNietZiek(boolean welNietZiek) {
         this.isWelNietZiek = welNietZiek;
-    }
-
-    public List<Vak> getVakken() {
-        return Collections.unmodifiableList(getKlas().getVakkenLijst());
     }
 
     @Override
