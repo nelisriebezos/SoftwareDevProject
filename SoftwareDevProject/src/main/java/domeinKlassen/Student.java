@@ -12,6 +12,7 @@ public class Student extends Gebruiker implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int leerlingNummer;
+    private SLB slb;
     private Klas klas;
     private boolean isWelNietZiek = false;
     ArrayList<LesAbsentie> lesAbsentieLijst = new ArrayList<>();
@@ -48,8 +49,15 @@ public class Student extends Gebruiker implements Serializable {
     	}
     }
  
-    
-    public int getLeerlingNummer() {
+    public SLB getSlb() {
+		return slb;
+	}
+
+	public void setSlb(SLB slb) {
+		this.slb = slb;
+	}
+
+	public int getLeerlingNummer() {
         return this.leerlingNummer;
     }
 
