@@ -1,27 +1,57 @@
 package OOP.SoftwareDevProject;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-
+import UI.*;
+import domeinKlassen.*;
 import controllers.Utils;
-import domeinKlassen.Docent;
-import domeinKlassen.Gebruiker;
-import domeinKlassen.Klas;
-import domeinKlassen.Les;
-import domeinKlassen.LesAbsentie;
-import domeinKlassen.Rooster;
-import domeinKlassen.SLB;
-import domeinKlassen.Student;
-import domeinKlassen.Vak;
+
 
 public class ApplicationTest {
+	
+	
+	Vak OOP = new Vak("OOP");
+	Vak OOAD = new Vak("OOAD");
+
+	Klas SG14 = new Klas(14);
+	Klas SG15 = new Klas(15);
+
+	Student s1 = new Student("Gerard.Hartong@student.hu.nl", "sinterklaas364", "Gerard", "Harting", 1023045);
+	Student s2 = new Student("Jelle.vanBroek@student.hu.nl", "kerstman", "Jelle", "van Broek", 1034839);
+	Student s3 = new Student("Christa.Lange@student.hu.nl", "konijnenvoer", "Christa", "Lange", 1472890);
+	Student s4 = new Student("Dante.Jawel@student.hu.nl", "watiseenwachtwoord", "Dante", "Jawel", 1432907);
+	Student s5 = new Student("Sophie.Dielemans@student.hu.nl", "ditiseenwachtwoord", "Sophie", "Dielemans", 1234678);
+	Student s6 = new Student("Ingmar.Boomstam@student.hu.nl", "ingmarisbest", "Ingmar", "Boomstam", 1094789);
+	
+	Docent d1 = new Docent("Karin.Haring@docent.hu.nl", "supersterkwachtwoord20", "Karin", "Haring", 4320832);
+	Docent d2 = new Docent("Brian.Honing@docent.hu.nl", "eenmindersterkwachtwoord", "Brian", "Honing", 4321934);
+	SLB slb1 = new SLB("Berend.Botje@docent.hu.nl", "woawoiewo", "Berend", "Botje");
+	
+	
+	@Test
+	public void TestToString() {
+	 assertEquals("Gerard Harting",s1.toString());
+	 assertEquals("Jelle vanBroek",s1.toString());
+	 assertEquals("Christa Lange",s1.toString());
+	 assertEquals("Dante Jawel",s1.toString());
+	 assertEquals("Sophie Dielemans",s1.toString());
+	 assertEquals("Ingmar Boomstam",s1.toString());
+	 assertEquals("karin Haring",d1.toString());
+	 assertEquals("Brian Honing",d2.toString());
+	 assertEquals("Berend Botje",slb1.toString());
+	}
 	@Nested
 	class testDocent {
 		@Nested
