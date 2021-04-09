@@ -1,11 +1,10 @@
 package OOP.SoftwareDevProject;
 
-import java.util.List;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.assertj.core.api.Assertions;
-
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -1168,17 +1167,211 @@ public class ApplicationTest {
 	class testVak {
 		@Nested
 		class testGet {
-
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testGetNaamTrue(String naam) {
+				Vak vak = new Vak(naam);
+				Assertions.assertThat(vak.getNaam()).isEqualTo(naam);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testGetNaamFalse(String naam) {
+				Vak vak = new Vak(naam);
+				Assertions.assertThat(vak.getNaam()).isNotEqualTo("nope");
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testGetDocentenLijstTrue(String naam) {
+				Vak vak = new Vak(naam);
+				List<Docent> docenten = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Docent docent = new Docent("test", "test", "test", "test", i);
+					vak.addDocent(docent);
+					docenten.add(docent);
+				}
+				Assertions.assertThat(vak.getDocentenLijst()).isEqualTo(docenten);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testGetDocentenLijstFalse(String naam) {
+				Vak vak = new Vak(naam);
+				List<Docent> docenten = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Docent docent = new Docent("test", "test", "test", "test", i);
+					docenten.add(docent);
+				}
+				Assertions.assertThat(vak.getDocentenLijst()).isNotEqualTo(docenten);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testGetKlassenLijstTrue(String naam) {
+				Vak vak = new Vak(naam);
+				List<Klas> klassen = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Klas klas = new Klas(i);
+					vak.addKlas(klas);
+					klassen.add(klas);
+				}
+				Assertions.assertThat(vak.getKlassenLijst()).isEqualTo(klassen);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testGetKlassenLijstFalse(String naam) {
+				Vak vak = new Vak(naam);
+				List<Klas> klassen = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Klas klas = new Klas(i);
+					klassen.add(klas);
+				}
+				Assertions.assertThat(vak.getKlassenLijst()).isNotEqualTo(klassen);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testGetLessenLijstTrue(String naam) {
+				Vak vak = new Vak(naam);
+				List<Les> lessen = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Les les = new Les(naam, "10:10", "11:10", LocalDate.now().plusDays(i), vak);
+					vak.addLes(les);
+					lessen.add(les);
+				}
+				Assertions.assertThat(vak.getLessenLijst()).isEqualTo(lessen);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testGetLessenLijstFalse(String naam) {
+				Vak vak = new Vak(naam);
+				List<Les> lessen = new ArrayList<>();
+				for(int i=0;i<=10;i++) {
+					Les les = new Les(naam, "10:10", "11:10", LocalDate.now().plusDays(i), vak);
+					lessen.add(les);
+				}
+				Assertions.assertThat(vak.getLessenLijst()).isNotEqualTo(lessen);
+			}
 		}
 		
 		@Nested
 		class testAdd {
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testAddDocentTrue(String naam) {
+				Vak vak = new Vak(naam);
+				Docent docent = new Docent("test", "test", "test", "test", 1);
+				vak.addDocent(docent);
+				Assertions.assertThat(vak.getDocentenLijst()).contains(docent);
+			}
 			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testAddDocentFalse(String naam) {
+				Vak vak = new Vak(naam);
+				Docent docent = new Docent("test", "test", "test", "test", 1);
+				Assertions.assertThat(vak.getDocentenLijst()).doesNotContain(docent);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testAddKlasTrue(String naam) {
+				Vak vak = new Vak(naam);
+				Klas klas = new Klas(1);
+				vak.addKlas(klas);
+				Assertions.assertThat(vak.getKlassenLijst()).contains(klas);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testAddKlasFalse(String naam) {
+				Vak vak = new Vak(naam);
+				Klas klas = new Klas(1);
+				Assertions.assertThat(vak.getKlassenLijst()).doesNotContain(klas);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testAddLesTrue(String naam) {
+				Vak vak = new Vak(naam);
+				Les les = new Les(naam, "10:10", "11:10", LocalDate.now(), vak);
+				vak.addLes(les);
+				Assertions.assertThat(vak.getLessenLijst()).contains(les);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testAddLesFalse(String naam) {
+				Vak vak = new Vak(naam);
+				Les les = new Les(naam, "10:10", "11:10", LocalDate.now(), vak);
+				Assertions.assertThat(vak.getLessenLijst()).doesNotContain(les);
+			}
 		}
 		
 		@Nested
 		class testRemove {
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testRemoveDocentTrue(String naam) {
+				Vak vak = new Vak(naam);
+				Les les = new Les(naam, "10:10", "11:10", LocalDate.now(), vak);
+				vak.addLes(les);
+				Assertions.assertThat(vak.getLessenLijst()).contains(les);
+				vak.removeLes(les);
+				Assertions.assertThat(vak.getLessenLijst()).doesNotContain(les);
+			}
 			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testRemoveDocentFalse(String naam) {
+				Vak vak = new Vak(naam);
+				Les les = new Les(naam, "10:10", "11:10", LocalDate.now(), vak);
+				vak.addLes(les);
+				Assertions.assertThat(vak.getLessenLijst()).contains(les);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testRemoveKlasTrue(String naam) {
+				Vak vak = new Vak(naam);
+				Klas klas = new Klas(1);
+				vak.addKlas(klas);
+				Assertions.assertThat(vak.getKlassenLijst()).contains(klas);
+				vak.removeKlas(klas);
+				Assertions.assertThat(vak.getKlassenLijst()).doesNotContain(klas);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testRemoveKlasFalse(String naam) {
+				Vak vak = new Vak(naam);
+				Klas klas = new Klas(1);
+				vak.addKlas(klas);
+				Assertions.assertThat(vak.getKlassenLijst()).contains(klas);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testRemoveLesTrue(String naam) {
+				Vak vak = new Vak(naam);
+				Les les = new Les(naam, "10:10", "11:10", LocalDate.now(), vak);
+				vak.addLes(les);
+				Assertions.assertThat(vak.getLessenLijst()).contains(les);
+				vak.removeLes(les);
+				Assertions.assertThat(vak.getLessenLijst()).doesNotContain(les);
+			}
+			
+			@ParameterizedTest
+			@ValueSource(strings = {"test", "test2", "test3", "test4"})
+			public void testRemoveLesFalse(String naam) {
+				Vak vak = new Vak(naam);
+				Les les = new Les(naam, "10:10", "11:10", LocalDate.now(), vak);
+				vak.addLes(les);
+				Assertions.assertThat(vak.getLessenLijst()).contains(les);
+			}
 		}
 	}
 	
