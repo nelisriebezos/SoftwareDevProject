@@ -35,4 +35,20 @@ public class Utils {
     public static boolean checkPassword(Gebruiker user, String password) {
         return user.getWachtwoord().equals(Utils.hashPassword(password));
     }
+    
+    //compares time strings
+    public static int compareTime(String time1, String time2) {
+    	if (time1.equals(time2)) {
+    		return 0;
+    	}
+    	else if(Integer.parseInt(time1.split(":")[0]) < Integer.parseInt(time2.split(":")[0])) {
+    		return 1;
+    	} else if(Integer.parseInt(time1.split(":")[0]) == Integer.parseInt(time2.split(":")[0]) 
+    			&& Integer.parseInt(time1.split(":")[1]) < Integer.parseInt(time2.split(":")[1])) {
+    		return 1;
+    	}
+    	else {
+    		return -1;
+    	}
+    }
 }
