@@ -574,22 +574,186 @@ public class ApplicationTest {
 	class testLes {
 		@Nested
 		class testGet {
-
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10",
+				"test2,10:11,11:11",
+				"test3,10:12,11:12",
+				"test4,10:13,11:13"
+			})
+			public void testGetNaamTrue(String naam, String beginTijd, String eindTijd) {
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(naam));
+				Assertions.assertThat(les.getNaam()).isEqualTo(naam);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10",
+				"test2,10:11,11:11",
+				"test3,10:12,11:12",
+				"test4,10:13,11:13"
+			})
+			public void testGetNaamFalse(String naam, String beginTijd, String eindTijd) {
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(naam));
+				Assertions.assertThat(les.getNaam()).isNotEqualTo("nope");
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10",
+				"test2,10:11,11:11",
+				"test3,10:12,11:12",
+				"test4,10:13,11:13"
+			})
+			public void testGetBeginTijdTrue(String naam, String beginTijd, String eindTijd) {
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(naam));
+				Assertions.assertThat(les.getBeginTijd()).isEqualTo(beginTijd);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10",
+				"test2,10:11,11:11",
+				"test3,10:12,11:12",
+				"test4,10:13,11:13"
+			})
+			public void testGetBeginTijdFalse(String naam, String beginTijd, String eindTijd) {
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(naam));
+				Assertions.assertThat(les.getBeginTijd()).isNotEqualTo("nope");
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10",
+				"test2,10:11,11:11",
+				"test3,10:12,11:12",
+				"test4,10:13,11:13"
+			})
+			public void testGetEindTijdTrue(String naam, String beginTijd, String eindTijd) {
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(naam));
+				Assertions.assertThat(les.getEindTijd()).isEqualTo(eindTijd);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10",
+				"test2,10:11,11:11",
+				"test3,10:12,11:12",
+				"test4,10:13,11:13"
+			})
+			public void testGetEindTijdFalse(String naam, String beginTijd, String eindTijd) {
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(naam));
+				Assertions.assertThat(les.getEindTijd()).isNotEqualTo("nope");
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10,1",
+				"test2,10:11,11:11,2",
+				"test3,10:12,11:12,3",
+				"test4,10:13,11:13,4"
+			})
+			public void testGetDagTrue(String naam, String beginTijd, String eindTijd, int nummer) {
+				LocalDate date = LocalDate.now().plusDays(nummer);
+				Les les = new Les(naam, beginTijd, eindTijd, date, new Vak(naam));
+				Assertions.assertThat(les.getDag()).isEqualTo(date);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10,1",
+				"test2,10:11,11:11,2",
+				"test3,10:12,11:12,3",
+				"test4,10:13,11:13,4"
+			})
+			public void testGetDagFalse(String naam, String beginTijd, String eindTijd, int nummer) {
+				LocalDate date = LocalDate.now().plusDays(nummer);
+				Les les = new Les(naam, beginTijd, eindTijd, date, new Vak(naam));
+				Assertions.assertThat(les.getDag()).isNotEqualTo(date.minusDays(nummer));
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10",
+				"test2,10:11,11:11",
+				"test3,10:12,11:12",
+				"test4,10:13,11:13"
+			})
+			public void testGetVakTrue(String naam, String beginTijd, String eindTijd) {
+				Vak vak = new Vak(naam);
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), vak);
+				Assertions.assertThat(les.getVak()).isEqualTo(vak);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10",
+				"test2,10:11,11:11",
+				"test3,10:12,11:12",
+				"test4,10:13,11:13"
+			})
+			public void testGetVakFalse(String naam, String beginTijd, String eindTijd) {
+				Vak vak = new Vak(naam);
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), vak);
+				Assertions.assertThat(les.getVak()).isNotEqualTo(new Vak("nope"));
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10,1",
+				"test2,10:11,11:11,2",
+				"test3,10:12,11:12,3",
+				"test4,10:13,11:13,4"
+			})
+			public void testGetRoosterTrue(String naam, String beginTijd, String eindTijd, int nummer) {
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(naam));
+				Rooster rooster = new Rooster(new Klas(nummer));
+				les.setRooster(rooster);
+				Assertions.assertThat(les.getRooster()).isEqualTo(rooster);
+			}
+			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10,1",
+				"test2,10:11,11:11,2",
+				"test3,10:12,11:12,3",
+				"test4,10:13,11:13,4"
+			})
+			public void testGetRoosterFalse(String naam, String beginTijd, String eindTijd, int nummer) {
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(naam));
+				Rooster rooster = new Rooster(new Klas(nummer));
+				Assertions.assertThat(les.getRooster()).isNotEqualTo(rooster);
+			}
 		}
 		
 		@Nested
 		class testSet {
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10,1",
+				"test2,10:11,11:11,2",
+				"test3,10:12,11:12,3",
+				"test4,10:13,11:13,4"
+			})
+			public void testSetRoosterTrue(String naam, String beginTijd, String eindTijd, int nummer) {
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(naam));
+				Rooster rooster = new Rooster(new Klas(nummer));
+				les.setRooster(rooster);
+				Assertions.assertThat(les.getRooster()).isEqualTo(rooster);
+			}
 			
-		}
-		
-		@Nested
-		class testAdd {
-			
-		}
-		
-		@Nested
-		class testRemove {
-			
+			@ParameterizedTest
+			@CsvSource({
+				"test,10:10,11:10,1",
+				"test2,10:11,11:11,2",
+				"test3,10:12,11:12,3",
+				"test4,10:13,11:13,4"
+			})
+			public void testSetRoosterFalse(String naam, String beginTijd, String eindTijd, int nummer) {
+				Les les = new Les(naam, beginTijd, eindTijd, LocalDate.now(), new Vak(naam));
+				Rooster rooster = new Rooster(new Klas(nummer));
+				Assertions.assertThat(les.getRooster()).isNotEqualTo(rooster);
+			}
 		}
 	}
 	
@@ -998,16 +1162,6 @@ public class ApplicationTest {
 		class testSet {
 			
 		}
-		
-		@Nested
-		class testAdd {
-			
-		}
-		
-		@Nested
-		class testRemove {
-			
-		}
 	}
 	
 	@Nested
@@ -1015,11 +1169,6 @@ public class ApplicationTest {
 		@Nested
 		class testGet {
 
-		}
-		
-		@Nested
-		class testSet {
-			
 		}
 		
 		@Nested
@@ -1072,7 +1221,8 @@ public class ApplicationTest {
 				Gebruiker gebruiker = new Gebruiker("test", password, "test", "test");
 				Assertions.assertThat(Utils.checkPassword(gebruiker, "nope")).isFalse();
 			}
-			
+		}
+		
 		@Nested
 		class testTime {
 			@ParameterizedTest
@@ -1086,7 +1236,6 @@ public class ApplicationTest {
 			public void testCompareTime(String time1, String time2, int expected) {
 				Assertions.assertThat(Utils.compareTime(time1, time2)).isEqualTo(expected);
 			}
-		}
 		}
 	}
 }
