@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.time.LocalDate;
+import java.time.LocalTime;
+
 import controllers.Utils;
 
 
@@ -40,20 +42,29 @@ public class AbsentieDoorvoerenController {
     
     public void opslaan(ActionEvent actionEvent) {
 		Student student = Manager.getInstance().getIngelogdStudent();
-		for(Vak vak: student.getKlas().getVakkenLijst()) {
-			for(Les les: vak.getLessenLijst()) {
+		
+			for(Les les: student.getKlas().getRooster().getLessenLijst()) {
+				LocalTime beginTijdParsed  = LocalTime.parse(beginTijd.getText()); 
+				LocalTime eindTijdParsed = LocalTime.parse(eindTijd.getText());
+				LocalTime beginTijdLesParsed = LocalTime.parse(les.getBeginTijd());
+				LocalTime eindTijdLesParsed = LocalTime.parse(les.getEindTijd());
+				
+				
 				if(((les.getDag().isAfter(beginDatum.getValue()) || (les.getDag().isEqual(beginDatum.getValue())) 
 						&& ((les.getDag().isBefore(eindDatum.getValue())) || (les.getDag().isEqual(eindDatum.getValue())))) 
-						&& Utils.compareTime(beginTijd.getText(), eindTijd.getText()) >= 0)) {
-					student.setAbsent(les, student);
-					System.out.println(les.toString());
-				}
+						 &&  beginTijdParsed.isBefore(beginTijdLesParsed) 
+						 && eindTijdParsed.isAfter(eindTijdLesParsed) 
+						 && Utils.compareTime(beginTijd.getText(), eindTijd.getText()) >= 0))  {
+						System.out.println(les);
+						student.setAbsent(les, student);
+					}
+				
+				Button source = (Button)actionEvent.getSource();
+		        Stage stage2 = (Stage)source.getScene().getWindow();
+		        stage2.close();}
 			}
-		Button source = (Button)actionEvent.getSource();
-        Stage stage2 = (Stage)source.getScene().getWindow();
-        stage2.close();
-    	}
-    }
+		
+    
     
     public void begintijdTextField(ActionEvent actionevent) {
     	if(beginTijd.getText().equals(null)) {
