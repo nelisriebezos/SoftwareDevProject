@@ -27,9 +27,18 @@ public class Student extends Gebruiker implements Serializable {
     	LesAbsentie l = new LesAbsentie();
     	l.setLes(les);
     	l.setStudent(stud);
-    	this.lesAbsentieLijst.add(l);
     	
-    	Manager.getInstance().addlesAbsentie(l);;
+    	Boolean exists = false;
+    	for (LesAbsentie la : this.lesAbsentieLijst) {
+    		if (la.equals(l)) {
+    			exists = true;
+    		}
+    	}
+    	if (!exists) {
+    		this.lesAbsentieLijst.add(l);
+    	}
+    	
+    	Manager.getInstance().addlesAbsentie(l);
     }
     
     public boolean getAbsent(Les les) {
