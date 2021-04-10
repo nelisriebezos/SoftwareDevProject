@@ -5,7 +5,6 @@ package UI;
 import controllers.Manager;
 import domeinKlassen.Les;
 import domeinKlassen.Student;
-import domeinKlassen.Vak;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
