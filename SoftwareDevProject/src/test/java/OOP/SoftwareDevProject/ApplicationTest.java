@@ -40,14 +40,14 @@ public class ApplicationTest {
 	@Test
 	public void TestToString() {
 	 assertEquals("Gerard Harting",s1.toString());
-	 assertEquals("Jelle vanBroek",s1.toString());
-	 assertEquals("Christa Lange",s1.toString());
-	 assertEquals("Dante Jawel",s1.toString());
-	 assertEquals("Sophie Dielemans",s1.toString());
-	 assertEquals("Ingmar Boomstam",s1.toString());
-	 assertEquals("karin Haring",d1.toString());
-	 assertEquals("Brian Honing",d2.toString());
-	 assertEquals("Berend Botje",slb1.toString());
+	 assertEquals("Jelle van Broek",s2.toString());
+	 assertEquals("Christa Lange",s3.toString());
+	 assertEquals("Dante Jawel",s4.toString());
+	 assertEquals("Sophie Dielemans",s5.toString());
+	 assertEquals("Ingmar Boomstam",s6.toString());
+	 assertEquals("Emailadres Karin.Haring@docent.hu.nl docentnummer: 4320832",d1.toString());
+	 assertEquals("Emailadres Brian.Honing@docent.hu.nl docentnummer: 4321934",d2.toString());
+	 assertEquals("Berend.Botje@docent.hu.nl",slb1.toString());
 	}
 	@Nested
 	class testDocent {
