@@ -74,7 +74,6 @@ public class HomeController {
 			}
 	
 	public void toonVorigeDag(ActionEvent actionEvent) {
-		
         LocalDate dagEerder = this.overzichtDatePicker.getValue().minusDays(1);
         this.overzichtDatePicker.setValue(dagEerder);
     }
