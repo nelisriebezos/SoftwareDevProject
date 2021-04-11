@@ -47,7 +47,6 @@ public class AbsentieBekijkenLeerlingController {
 		String formatedDateTime = now.format(formatter);
 
 		if (!Manager.getInstance().getIngelogdStudent().getIsWelNietZiek()) {
-			System.out.println("meld ziek");
 			List<Les> lessenlijst = Manager.getInstance().getIngelogdStudent().getKlas().getRooster().getLessenLijst();
 			for (Les l : lessenlijst) {
 				if (l.getDag().equals(LocalDate.now())) {
@@ -59,7 +58,6 @@ public class AbsentieBekijkenLeerlingController {
 			Manager.getInstance().getIngelogdStudent().setWelNietZiek(true);
 
 		} else {
-			System.out.println("meld beter");
 			this.datumZiekLabel.setText("");
 			this.ZiekmeldenKnop.setText("Ziekmelden");
 			Manager.getInstance().getIngelogdStudent().setWelNietZiek(false);

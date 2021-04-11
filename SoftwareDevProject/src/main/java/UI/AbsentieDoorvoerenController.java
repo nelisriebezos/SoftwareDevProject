@@ -54,7 +54,6 @@ public class AbsentieDoorvoerenController {
 						 &&  beginTijdParsed.isBefore(beginTijdLesParsed) 
 						 && eindTijdParsed.isAfter(eindTijdLesParsed) 
 						 && Utils.compareTime(beginTijd.getText(), eindTijd.getText()) >= 0))  {
-						System.out.println(les);
 						student.setAbsent(les, student);
 					}
 				
