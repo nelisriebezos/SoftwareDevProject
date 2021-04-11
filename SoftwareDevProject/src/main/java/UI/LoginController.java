@@ -20,8 +20,8 @@ import domeinKlassen.Student;
 public class LoginController {
 
 	public Label misluktLabel;
-	public PasswordField wachtwoordPasswordField;
-	public TextField gebruikersnaamTextField;
+	public PasswordField WachtwoordPasswordField;
+	public TextField GebruikersnaamTextField;
 	public String bestandsNaam = "";
 
 	public void LoginKnop(ActionEvent actionEvent) {	
@@ -49,8 +49,8 @@ public class LoginController {
 	
 	public boolean checkDocent() {
 		for (Docent d : Manager.getInstance().getDocentenLijst()) {
-			if (Utils.checkPassword(d, wachtwoordPasswordField.getText()) 
-					&& gebruikersnaamTextField.getText().equals(String.valueOf(d.getDocentNummer()))) {
+			if (Utils.checkPassword(d, WachtwoordPasswordField.getText()) 
+					&& GebruikersnaamTextField.getText().equals(String.valueOf(d.getDocentNummer()))) {
 				Manager.getInstance().setIngelogdDocent(d);
 				this.bestandsNaam = "Home2.fxml";
 				return true;
@@ -61,8 +61,8 @@ public class LoginController {
 	
 	public boolean checkStudent() {
 		for (Student s : Manager.getInstance().getStudentenLijst()) {
-			if (Utils.checkPassword(s, wachtwoordPasswordField.getText())
-					&& gebruikersnaamTextField.getText().equals(String.valueOf( s.getLeerlingNummer()))) {
+			if (Utils.checkPassword(s, WachtwoordPasswordField.getText())
+					&& GebruikersnaamTextField.getText().equals(String.valueOf( s.getLeerlingNummer()))) {
 				Manager.getInstance().setIngelogdStudent(s);
 				this.bestandsNaam = "Home.fxml";
 				return true;

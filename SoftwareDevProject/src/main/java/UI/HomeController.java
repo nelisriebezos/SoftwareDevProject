@@ -20,9 +20,9 @@ import controllers.Manager;
 import domeinKlassen.Les;
 
 public class HomeController {
-	public Button geplandeAfwezigheidKnop;
+	public Button GeplandeAfwezigheidKnop;
 	public DatePicker overzichtDatePicker;
-	public ListView<Les> lessenListView;
+	public ListView<Les> vakkenListView;
 
 	public void initialize() {
 		this.overzichtDatePicker.setValue(LocalDate.now());
@@ -70,7 +70,7 @@ public class HomeController {
 						lessen.add(les);
 					}
 				}
-				this.lessenListView.setItems(FXCollections.observableArrayList(lessen));
+				this.vakkenListView.setItems(FXCollections.observableArrayList(lessen));
 			}
 	
 	public void toonVorigeDag(ActionEvent actionEvent) {

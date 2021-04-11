@@ -17,7 +17,7 @@ import domeinKlassen.*;
 
 public class AbsentieBekijkenLeerlingController {
 	public Label datumZiekLabel;
-	public Button ziekmeldenKnop;
+	public Button ZiekmeldenKnop;
 	public ComboBox<Vak> vakkenCombobox;
 	public ListView<Vak> vakkenListView;
 	public Label naamLeerlingLabel;
@@ -28,7 +28,7 @@ public class AbsentieBekijkenLeerlingController {
 		List<Vak> vakken = Manager.getInstance().getIngelogdStudent().getVakken();
 		this.vakkenCombobox.setItems(FXCollections.observableList(vakken));
 		if (Manager.getInstance().getIngelogdStudent().getIsWelNietZiek()) {
-			this.ziekmeldenKnop.setText("Beter melden");
+			this.ZiekmeldenKnop.setText("Beter melden");
 		}
 	}
 
@@ -55,13 +55,13 @@ public class AbsentieBekijkenLeerlingController {
 				}
 			}
 			this.datumZiekLabel.setText("Je bent ziekgemeld vanaf:\n" + formatedDateTime);
-			this.ziekmeldenKnop.setText("Beter melden");
+			this.ZiekmeldenKnop.setText("Beter melden");
 			Manager.getInstance().getIngelogdStudent().setWelNietZiek(true);
 
 		} else {
 			System.out.println("meld beter");
 			this.datumZiekLabel.setText("");
-			this.ziekmeldenKnop.setText("Ziekmelden");
+			this.ZiekmeldenKnop.setText("Ziekmelden");
 			Manager.getInstance().getIngelogdStudent().setWelNietZiek(false);
 
 		}
