@@ -49,7 +49,7 @@ public class AbsentieDoorvoerenController {
 				LocalTime eindTijdLesParsed = LocalTime.parse(les.getEindTijd());
 				
 				
-				if(((les.getDag().isAfter(beginDatum.getValue()) || (les.getDag().isEqual(beginDatum.getValue())) 
+				if((((les.getDag().isAfter(beginDatum.getValue()) || (les.getDag().isEqual(beginDatum.getValue()))) 
 						&& ((les.getDag().isBefore(eindDatum.getValue())) || (les.getDag().isEqual(eindDatum.getValue())))) 
 						 &&  beginTijdParsed.isBefore(beginTijdLesParsed) 
 						 && eindTijdParsed.isAfter(eindTijdLesParsed) 
